@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "Astro is cool"
 pubDate: 2022-11-26
 description: "Description ends up where?"
@@ -7,7 +8,5 @@ image:
   alt: "The Astro logo with the word One."
 tags: ["astro", "twitch", "learning in public", "tech"]
 ---
-
-# Astro is cool
 
 Some content
