@@ -1,0 +1,18 @@
+---
+import cn from "classnames";
+
+export interface Props {
+  bg?: string;
+  size?: "lg" | "md" | "sm";
+}
+
+const { bg = "bg-gray-800", size = "md" } = Astro.props;
+
+const sizes: Record<string, string> = {
+  lg: "text-lg",
+  md: "text-md",
+  sm: "text-sm",
+};
+---
+
+<span class={cn("px-2 py-1 text-white", bg, sizes[size])}><slot /></span>

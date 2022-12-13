@@ -1,0 +1,23 @@
+---
+import SkillLabel from "./SkillLabel.astro";
+
+export interface Props {
+  skills: string[];
+  size?: "lg" | "md" | "sm";
+  bg?: string;
+}
+
+const { skills, size = "md", bg = "bg-gray-800" } = Astro.props;
+---
+
+<ul class="flex flex-wrap gap-2">
+  {
+    skills.map((skill) => (
+      <li>
+        <SkillLabel size={size} bg={bg}>
+          {skill}
+        </SkillLabel>
+      </li>
+    ))
+  }
+</ul>
