@@ -7,7 +7,7 @@ const allPosts = await Astro.glob("./blog/*.md");
 
 <BaseLayout title="Blog">
   <main>
-    <h1 class="text-blue-600">Blog</h1>
+    <h1 class="text-4xl mb-12">Blog</h1>
 
     <div>
       {allPosts.map((post) => <BlogPostTeaser post={post} />)}

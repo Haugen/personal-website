@@ -9,15 +9,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       Onboard expert web development on your team today
     </h1>
     <p class="text-3xl mb-16">
-      White Fluffy Clouds is the home of experienced web developer Tobias
-      Haugen. Our aim is to help teams and business build excellent web
-      applications together.
+      White Fluffy Clouds is the home of experienced software engineer Tobias
+      Haugen. We help teams and business build excellent web applications
+      together.
     </p>
 
     <div class="lg:px-32">
-      <h2 class="mb-3 text-2xl">Main skillset and tools</h2>
       <SkillLabelList
-        bg="bg-blue-800"
+        title="Main skillset"
+        bg="bg-slate-900"
         size="xl"
         skills={[
           "TypeScript",
@@ -42,16 +42,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         ]}
       />
 
-      <h2 class="mb-3 text-2xl mt-8">Currently curious about</h2>
       <SkillLabelList
-        bg="bg-slate-800"
+        title="Curious about"
+        bg="bg-slate-700"
         size="lg"
         skills={["Ethereum", "Smart Contracts", "tRPC", "Content Creation"]}
       />
 
-      <h2 class="mb-3 text-2xl mt-8">Additional tools and skills</h2>
       <SkillLabelList
-        bg="bg-slate-600"
+        title="Comfortable with"
+        bg="bg-slate-500"
         skills={[
           "MacOS",
           "REST",
@@ -79,8 +79,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         ]}
       />
 
-      <h2 class="mb-3 text-2xl mt-8">Back in the days</h2>
       <SkillLabelList
+        title="Some experience with"
         bg="bg-slate-400"
         size="sm"
         skills={[
