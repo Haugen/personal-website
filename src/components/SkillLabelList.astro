@@ -1,9 +1,10 @@
 ---
+import type { Sizes } from "../types";
 import SkillLabel from "./SkillLabel.astro";
 
 export interface Props {
   skills: string[];
-  size?: "lg" | "md" | "sm";
+  size?: Sizes;
   bg?: string;
 }
 

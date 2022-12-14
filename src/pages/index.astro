@@ -1,9 +1,101 @@
 ---
+import SkillLabelList from "../components/SkillLabelList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Welcome to Astro.">
   <main>
-    <h1 class="text-blue-600">New cool astro project</h1>
+    <h1 class="text-7xl mb-10">
+      Onboard expert web development on your team today
+    </h1>
+    <p class="text-3xl mb-16">
+      White Fluffy Clouds is the home of experienced web developer Tobias
+      Haugen. Our aim is to help teams and business build excellent web
+      applications together.
+    </p>
+
+    <div class="lg:px-32">
+      <h2 class="mb-3 text-2xl">Main skillset and tools</h2>
+      <SkillLabelList
+        bg="bg-blue-800"
+        size="xl"
+        skills={[
+          "TypeScript",
+          "React",
+          "Next.js",
+          "Tailwind",
+          "Web3",
+          "React Query",
+          "Git",
+          "Github",
+          "UI/UX",
+          "API integrations",
+          "Turborepo",
+          "Vercel",
+          "iTerm",
+          "VS Code",
+          "Technical Leadership",
+          "Product Management",
+          "Agile development",
+          "Scrum",
+          "Kanban",
+        ]}
+      />
+
+      <h2 class="mb-3 text-2xl mt-8">Currently curious about</h2>
+      <SkillLabelList
+        bg="bg-slate-800"
+        size="lg"
+        skills={["Ethereum", "Smart Contracts", "tRPC", "Content Creation"]}
+      />
+
+      <h2 class="mb-3 text-2xl mt-8">Additional tools and skills</h2>
+      <SkillLabelList
+        bg="bg-slate-600"
+        skills={[
+          "MacOS",
+          "REST",
+          "GraphQL",
+          "Node.js",
+          "NPM",
+          "Yarn",
+          "CSS-in-JS",
+          "Stitches",
+          "Docker",
+          "SQL",
+          "Linux",
+          "Firebase",
+          "Flutter",
+          "Dart",
+          "Express.js",
+          "GCP",
+          "AWS",
+          "Heroku",
+          "wagmi",
+          "ethers.js",
+          "Storybook",
+          "Zustand",
+          "SWR",
+        ]}
+      />
+
+      <h2 class="mb-3 text-2xl mt-8">Back in the days</h2>
+      <SkillLabelList
+        bg="bg-slate-400"
+        size="sm"
+        skills={[
+          "PHP",
+          "Drupal",
+          "Bootstrap",
+          "MongoDB",
+          "Mongoose",
+          "MUI",
+          "Redux",
+          "Gatsby",
+          "Preact",
+          "Socket.IO",
+        ]}
+      />
+    </div>
   </main>
 </BaseLayout>

@@ -1,14 +1,16 @@
 ---
 import cn from "classnames";
+import type { Sizes } from "../types";
 
 export interface Props {
   bg?: string;
-  size?: "lg" | "md" | "sm";
+  size?: Sizes;
 }
 
 const { bg = "bg-gray-800", size = "md" } = Astro.props;
 
 const sizes: Record<string, string> = {
+  xl: "text-xl",
   lg: "text-lg",
   md: "text-md",
   sm: "text-sm",
