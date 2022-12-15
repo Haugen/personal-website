@@ -1,11 +1,13 @@
 ---
-import SkillLabelList from "../components/SkillLabelList.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SkillsetSection from "../sections/SkillsetSection.astro";
+import TestimonialsSection from "../sections/TestimonialsSection.astro";
 ---
 
 <BaseLayout title="Welcome to Astro.">
   <main>
-    <h1 class="text-7xl mb-10">
+    <h1 class="text-7xl mb-8 text-slate-800">
       Onboard expert web development on your team today
     </h1>
     <p class="text-3xl mb-16">
@@ -14,88 +16,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       together.
     </p>
 
+    <SectionHeader>Testimonials</SectionHeader>
+    <TestimonialsSection />
+
+    <SectionHeader>Skillset</SectionHeader>
     <div class="lg:px-32">
-      <SkillLabelList
-        title="Main skillset"
-        bg="bg-slate-900"
-        size="xl"
-        skills={[
-          "TypeScript",
-          "React",
-          "Next.js",
-          "Tailwind",
-          "Web3",
-          "React Query",
-          "Git",
-          "Github",
-          "UI/UX",
-          "API integrations",
-          "Turborepo",
-          "Vercel",
-          "iTerm",
-          "VS Code",
-          "Technical Leadership",
-          "Product Management",
-          "Agile development",
-          "Scrum",
-          "Kanban",
-        ]}
-      />
-
-      <SkillLabelList
-        title="Curious about"
-        bg="bg-slate-700"
-        size="lg"
-        skills={["Ethereum", "Smart Contracts", "tRPC", "Content Creation"]}
-      />
-
-      <SkillLabelList
-        title="Comfortable with"
-        bg="bg-slate-500"
-        skills={[
-          "MacOS",
-          "REST",
-          "GraphQL",
-          "Node.js",
-          "NPM",
-          "Yarn",
-          "CSS-in-JS",
-          "Stitches",
-          "Docker",
-          "SQL",
-          "Linux",
-          "Firebase",
-          "Flutter",
-          "Dart",
-          "Express.js",
-          "GCP",
-          "AWS",
-          "Heroku",
-          "wagmi",
-          "ethers.js",
-          "Storybook",
-          "Zustand",
-          "SWR",
-        ]}
-      />
-
-      <SkillLabelList
-        title="Some experience with"
-        bg="bg-slate-400"
-        size="sm"
-        skills={[
-          "PHP",
-          "Drupal",
-          "Bootstrap",
-          "MongoDB",
-          "Mongoose",
-          "MUI",
-          "Redux",
-          "Gatsby",
-          "Preact",
-          "Socket.IO",
-        ]}
-      />
+      <SkillsetSection />
     </div>
   </main>
 </BaseLayout>
