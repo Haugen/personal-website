@@ -1,32 +1,38 @@
 ---
-import { Image } from "@astrojs/image/components";
-
 import SectionHeader from "../components/SectionHeader.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeHeader from "../sections/HomeHeader.astro";
 import SkillsetSection from "../sections/SkillsetSection.astro";
 import TestimonialsSection from "../sections/TestimonialsSection.astro";
-import profileImage from "../profile.jpeg";
 ---
 
 <BaseLayout title="Welcome to Astro.">
   <main>
-    <h1 class="text-7xl mb-16 text-slate-800">
-      Onboard expert web development on your team today
-    </h1>
-    <div class="flex items-center">
-      <Image
-        src={profileImage}
-        width={300}
-        aspectRatio="1:1"
-        alt="Image of Tobias"
-        class="rounded-full mr-16"
-      />
-      <p class="text-4xl mb-16">
-        White Fluffy Clouds is the home of experienced software engineer Tobias
-        Haugen. We help teams and business build excellent web applications
-        together.
-      </p>
-    </div>
+    <HomeHeader />
+
+    <ul class="flex gap-4 mt-16 justify-center text-xl">
+      <li>
+        <a
+          href="https://www.linkedin.com/in/tobias-haugen/"
+          target="_blank"
+          rel="noreferrer">LinkedIn</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.toptal.com/resume/tobias-haugen"
+          target="_blank"
+          rel="noreferrer">Toptal</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://twitter.com/whitefluffyC"
+          target="_blank"
+          rel="noreferrer">Twitter</a
+        >
+      </li>
+    </ul>
 
     <SectionHeader>Testimonials</SectionHeader>
     <TestimonialsSection />

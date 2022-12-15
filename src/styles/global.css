@@ -3,8 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+body {
   @apply bg-slate-50 font-roboto;
+}
+
+* {
+  @apply text-lg md:text-xl;
+}
+
+a {
+  @apply border-b border-black hover:border-b-2;
 }
 
 code {
