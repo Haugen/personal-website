@@ -9,7 +9,7 @@ export interface Props {
 
 const { bg = "bg-gray-800", size = "md" } = Astro.props;
 
-const sizes: Record<string, string> = {
+const sizes: Record<Sizes, string> = {
   xl: "text-xl",
   lg: "text-lg",
   md: "text-md",

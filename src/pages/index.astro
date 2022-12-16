@@ -1,6 +1,7 @@
 ---
 import SectionHeader from "../components/SectionHeader.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ExperienceSection from "../sections/ExperienceSection.astro";
 import HomeHeader from "../sections/HomeHeader.astro";
 import SkillsetSection from "../sections/SkillsetSection.astro";
 import TestimonialsSection from "../sections/TestimonialsSection.astro";
@@ -10,11 +11,18 @@ import TestimonialsSection from "../sections/TestimonialsSection.astro";
   <main>
     <HomeHeader />
 
+    <SectionHeader>Introduction</SectionHeader>
+    <ExperienceSection />
+
+    <SectionHeader>Notable projects</SectionHeader>
+    <ExperienceSection />
+
     <SectionHeader>Testimonials</SectionHeader>
     <TestimonialsSection />
 
-    <SectionHeader>Skillset</SectionHeader>
-
-    <SkillsetSection />
+    <!-- <SectionHeader>Skillset</SectionHeader>
+    <div class="lg:px-32">
+      <SkillsetSection />
+    </div> -->
   </main>
 </BaseLayout>
