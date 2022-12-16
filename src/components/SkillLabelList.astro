@@ -12,8 +12,8 @@ export interface Props {
 const { title, skills, size = "md", bg = "bg-gray-800" } = Astro.props;
 ---
 
-<h2 class="mb-4 text-2xl mt-8">{title}</h2>
-<ul class="flex flex-wrap gap-x-1 gap-y-2">
+<h2 class="mb-2 text-xl mt-8">{title}</h2>
+<ul class="flex flex-wrap gap-1">
   {
     skills.map((skill) => (
       <li>

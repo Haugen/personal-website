@@ -17,6 +17,7 @@ const sizes: Record<string, string> = {
 };
 ---
 
-<span class={cn("px-2 py-1 text-white rounded-sm", bg, sizes[size])}
+<span
+  class={cn("px-2 py-1 text-white rounded-sm inline-block", bg, sizes[size])}
   ><slot />
 </span>

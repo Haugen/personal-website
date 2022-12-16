@@ -1,14 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-slate-50 font-roboto;
-}
-
-* {
-  @apply text-lg md:text-xl;
+  @apply bg-white text-black;
 }
 
 a {
