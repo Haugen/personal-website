@@ -1,0 +1,40 @@
+---
+import { Image } from "@astrojs/image/components";
+import cn from "classnames";
+
+interface BaseProps {
+  title: string;
+}
+interface VideoProps extends BaseProps {
+  videoUrl: string;
+}
+interface ImageProps extends BaseProps {
+  imageUrl: string;
+}
+
+export type Props = VideoProps | ImageProps;
+
+const { imageUrl, videoUrl, title, text } = Astro.props;
+---
+
+<div>
+  {
+    imageUrl && (
+      <Image
+        src={imageUrl}
+        width={1000}
+        height={562}
+        alt={`${title} project image`}
+      />
+    )
+  }
+  {
+    videoUrl && (
+      <video width="1000" height="562" autoplay loop muted>
+        <source src={videoUrl} type="video/mp4" />
+      </video>
+    )
+  }
+  <h3 class="text-xl md:text-2xl mt-4">{title}</h3>
+  <p><slot /></p>
+</div>

@@ -2,12 +2,12 @@
 import type { Sizes } from "../types";
 import SkillLabel from "./SkillLabel.astro";
 
-export interface Props {
+export type Props = {
   title: string;
   skills: string[];
   size?: Sizes;
   bg?: string;
-}
+};
 
 const { title, skills, size = "md", bg = "bg-gray-800" } = Astro.props;
 ---

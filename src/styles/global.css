@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  @apply border-b border-black hover:border-b-2;
+  @apply border-b border-inherit hover:border-b-2;
 }
 
 code {

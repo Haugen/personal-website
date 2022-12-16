@@ -1,9 +1,9 @@
 ---
 import type { MarkdownInstance } from "astro";
 
-export interface Props {
+export type Props = {
   post: MarkdownInstance<Record<string, any>>;
-}
+};
 
 const { post } = Astro.props;
 ---

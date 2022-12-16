@@ -2,10 +2,10 @@
 import cn from "classnames";
 import type { Sizes } from "../types";
 
-export interface Props {
+export type Props = {
   bg?: string;
   size?: Sizes;
-}
+};
 
 const { bg = "bg-gray-800", size = "md" } = Astro.props;
 
