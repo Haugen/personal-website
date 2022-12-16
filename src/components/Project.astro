@@ -1,6 +1,5 @@
 ---
 import { Image } from "@astrojs/image/components";
-import cn from "classnames";
 
 interface BaseProps {
   title: string;
@@ -35,6 +34,6 @@ const { imageUrl, videoUrl, title, text } = Astro.props;
       </video>
     )
   }
-  <h3 class="text-xl md:text-2xl mt-4">{title}</h3>
+  <h3 class="text-xl md:text-2xl my-4">{title}</h3>
   <p><slot /></p>
 </div>

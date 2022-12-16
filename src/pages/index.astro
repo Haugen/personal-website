@@ -1,28 +1,23 @@
 ---
 import SectionHeader from "../components/SectionHeader.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ExperienceSection from "../sections/ExperienceSection.astro";
 import HomeHeader from "../sections/HomeHeader.astro";
 import ProjectsSection from "../sections/ProjectsSection.astro";
+import SkillsetSection from "../sections/SkillsetSection.astro";
 import TestimonialsSection from "../sections/TestimonialsSection.astro";
 ---
 
 <BaseLayout title="Welcome to Astro.">
-  <main>
-    <HomeHeader />
+  <HomeHeader />
 
-    <SectionHeader>Introduction</SectionHeader>
-    <ExperienceSection />
+  <SectionHeader>Notable projects</SectionHeader>
+  <ProjectsSection />
 
-    <SectionHeader>Notable projects</SectionHeader>
-    <ProjectsSection />
+  <SectionHeader>Skills</SectionHeader>
+  <div class="max-w-2xl mx-auto">
+    <SkillsetSection />
+  </div>
 
-    <SectionHeader>Testimonials</SectionHeader>
-    <TestimonialsSection />
-
-    <!-- <SectionHeader>Skillset</SectionHeader>
-    <div class="lg:px-32">
-      <SkillsetSection />
-    </div> -->
-  </main>
+  <SectionHeader>Testimonials</SectionHeader>
+  <TestimonialsSection />
 </BaseLayout>
