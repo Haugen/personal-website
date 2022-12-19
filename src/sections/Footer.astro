@@ -1,18 +1,21 @@
 ---
 import Button from "../components/Button.astro";
+import Container from "../components/Container.astro";
 import SocialLinks from "../components/SocialLinks.astro";
 ---
 
 <footer class="py-16 mt-16 text-center bg-black text-white">
-  <h3 class="text-4xl mb-8">I would love to hear from you</h3>
-  <p class="text-xl mb-8 max-w-md mx-auto">
-    If you're in need of a skilled web developer and tech lead, don't hesitate
-    to reach out.
-  </p>
-  <Button>Get in touch</Button>
-  <SocialLinks />
-  <p class="text-xs text-gray-400 mt-8">
-    Tobias Haugen is incorporated in Sweden under White Fluffy Clouds AB, org.
-    nr: 559407-6126
-  </p>
+  <Container>
+    <h3 class="text-3xl mb-8">I would love to hear from you</h3>
+    <p class="text-xl mb-8 max-w-md mx-auto">
+      I'm always interested in connecting with friendly people in the tech
+      industry.
+    </p>
+    <Button>Get in touch</Button>
+    <SocialLinks />
+    <p class="text-xs text-gray-400 mt-8">
+      Tobias Haugen is incorporated in Sweden under White Fluffy Clouds AB, org.
+      nr: 559407-6126
+    </p>
+  </Container>
 </footer>

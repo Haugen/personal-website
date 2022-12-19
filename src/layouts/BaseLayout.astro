@@ -23,7 +23,12 @@ const { title } = Astro.props;
   </head>
   <body>
     <!-- <Header /> -->
-    <div class="h-2 bg-green-300"></div>
+    <div class="h-4 bg-gradient-to-l via-green-300 from-blue-300 to-red-300">
+    </div>
+    <div
+      class="absolute top-0 left-0 w-full h-4 bg-gradient-to-b from-transparent to-white"
+    >
+    </div>
     <Container>
       <slot />
     </Container>
