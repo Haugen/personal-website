@@ -1,0 +1,18 @@
+---
+import Linkedin from "../icons/Linkedin.astro";
+import Toptal from "../icons/Toptal.astro";
+import Twitter from "../icons/Twitter.astro";
+import SocialIcon from "./SocialIcon.astro";
+---
+
+<div class="flex gap-4">
+  <SocialIcon url="https://twitter.com/whitefluffyC">
+    <Twitter slot="icon" />
+  </SocialIcon>
+  <SocialIcon url="https://www.linkedin.com/in/tobias-haugen/">
+    <Linkedin slot="icon" />
+  </SocialIcon>
+  <SocialIcon url="https://www.toptal.com/resume/tobias-haugen">
+    <Toptal slot="icon" />
+  </SocialIcon>
+</div>

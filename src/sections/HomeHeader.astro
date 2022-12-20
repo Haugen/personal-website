@@ -1,6 +1,8 @@
 ---
 import { Image } from "@astrojs/image/components";
+
 import Button from "../components/Button.astro";
+import SocialIconsList from "../components/SocialIconsList.astro";
 ---
 
 <h1
@@ -25,8 +27,11 @@ import Button from "../components/Button.astro";
       over 10 years. These days, I'm helping teams to build great products
       together.
     </p>
-    <div class="flex mt-8">
-      <Button>Get in touch</Button>
+    <div class="flex mt-8 items-center">
+      <div class="flex mr-8">
+        <Button>Get in touch</Button>
+      </div>
+      <SocialIconsList />
     </div>
   </div>
 </div>

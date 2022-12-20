@@ -1,0 +1,13 @@
+---
+type Props = {
+  url: string;
+};
+
+const { url, icon } = Astro.props;
+---
+
+<div class="w-8 h-8 duration-300 hover:scale-110 opacity-80 hover:opacity-100">
+  <a href={url} class="" target="_blank" rel="noreferrer"
+    ><slot name="icon" />
+  </a>
+</div>
