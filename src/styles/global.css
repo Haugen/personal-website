@@ -4,7 +4,8 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white text-black;
+  @apply bg-white text-black dark:bg-zinc-900 dark:text-zinc-300
+    antialiased transition-all duration-300;
 }
 
 a {

@@ -1,6 +1,7 @@
 ---
 import Container from "../components/Container.astro";
 import Footer from "../sections/Footer.astro";
+import ThemeToggler from "../components/ThemeToggler";
 import "../styles/global.css";
 
 export type Props = {
@@ -10,7 +11,28 @@ export type Props = {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<script is:inline>
+  const theme = (() => {
+    if (
+      typeof localStorage !== "undefined" &&
+      localStorage.getItem("fluffy_theme")
+    ) {
+      return localStorage.getItem("fluffy_theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+  window.localStorage.setItem("fluffy_theme", theme);
+</script>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,13 +43,13 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <!-- <Header /> -->
     <div class="h-4 bg-gradient-to-l via-green-300 from-blue-300 to-red-300">
     </div>
     <div
       class="absolute top-0 left-0 w-full h-4 bg-gradient-to-b from-transparent to-white"
     >
     </div>
+    <ThemeToggler client:load />
     <Container>
       <slot />
     </Container>

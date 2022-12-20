@@ -1,8 +1,11 @@
 ---
+import cn from "classnames";
 ---
 
-<h2
-  class="text-center text-3xl border-b border-gray-300 font-bold pb-2 mt-36 mb-8"
->
+<h2 class={cn("text-center text-3xl font-bold pb-2 mt-36 mb-8")}>
   <slot />
+  <div
+    class="h-px mt-2 bg-gradient-to-l via-green-300 from-blue-300 to-red-300"
+  >
+  </div>
 </h2>
