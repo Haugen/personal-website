@@ -1,4 +1,32 @@
+---
+import cn from "classnames";
+---
+
 <button
-  class="text-sm text-black uppercase font-bold bg-green-300 hover:bg-green-400 transition duration-300 px-8 py-4 rounded-sm"
-  ><slot />
+  class={cn(
+    "text-sm text-black uppercase font-bold px-6 py-3 rounded-sm",
+    "bg-emerald-300 transition duration-300 overflow-hidden",
+    "relative group inline-flex items-center justify-center",
+    "active:translate-y-0.5"
+  )}
+>
+  <span
+    class={cn(
+      "absolute w-0 h-0 transition-all duration-300 ease-out bg-emerald-800",
+      "rounded-full group-hover:w-44 group-hover:h-44 opacity-10"
+    )}></span>
+  <span class="relative"><slot /></span>
 </button>
+<!-- <button
+  class={cn(
+    "rounded text-sm overflow-hidden font-bold uppercase relative inline-flex",
+    "group items-center justify-center px-3 py-2 border-b-4",
+    "border-l-2 active:border-teal-600 active:shadow-none shadow-lg",
+    "bg-gradient-to-tr from-teal-600 to-teal-500 border-teal-700 text-white"
+  )}
+>
+  <span
+    class="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"
+  ></span>
+  <span class="relative"><slot /></span>
+</button> -->
