@@ -26,7 +26,7 @@ export default function ThemeToggle() {
   if (!isMounted) return null;
 
   return (
-    <button class="absolute top-8 right-6" onClick={() => handleClick()}>
+    <button class="absolute top-6 right-8" onClick={() => handleClick()}>
       {theme === "light" ? "🌙" : "🌞"}
     </button>
   );

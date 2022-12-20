@@ -1,12 +1,16 @@
 ---
 import { Image } from "@astrojs/image/components";
+import cn from "classnames";
 
 import Button from "../components/Button.astro";
 import SocialIconsList from "../components/SocialIconsList.astro";
 ---
 
 <h1
-  class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mt-16 mb-8 md:mb-24 text-slate-800 text-center"
+  class={cn(
+    "text-5xl md:text-6xl lg:text-7xl xl:text-8xl",
+    "font-bold mt-16 mb-8 md:mb-24 text-center text-zinc-800 dark:text-zinc-300"
+  )}
 >
   Top up your team with an expert web developer
 </h1>

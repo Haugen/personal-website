@@ -1,11 +1,17 @@
 ---
+import cn from "classnames";
+
 import Button from "../components/Button.astro";
 import Container from "../components/Container.astro";
-import SocialIconsList from "../components/SocialIconsList.astro";
 import SocialLinks from "../components/SocialLinks.astro";
 ---
 
-<footer class="py-16 mt-16 text-center bg-black text-white">
+<footer
+  class={cn(
+    "bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900",
+    "py-16 mt-16 text-center"
+  )}
+>
   <Container>
     <h3 class="text-4xl mb-8">Say hi</h3>
     <p class="text-xl mb-8 max-w-md mx-auto">
@@ -14,7 +20,7 @@ import SocialLinks from "../components/SocialLinks.astro";
     </p>
     <Button>Get in touch</Button>
     <SocialLinks />
-    <p class="text-xs text-gray-400 mt-8">
+    <p class="text-xs text-zinc-400 dark:text-zinc-600 mt-8">
       Tobias Haugen is incorporated in Sweden under White Fluffy Clouds AB, org.
       nr: 559407-6126.
     </p>
