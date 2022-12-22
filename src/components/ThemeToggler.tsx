@@ -1,5 +1,8 @@
 import { useEffect, useState } from "preact/hooks";
 
+import MoonIcon from "../icons/Moon";
+import SunIcon from "../icons/Sun";
+
 export default function ThemeToggle() {
   const [isMounted, setIsMounted] = useState(false);
   const [theme, setTheme] = useState(
@@ -26,8 +29,11 @@ export default function ThemeToggle() {
   if (!isMounted) return null;
 
   return (
-    <button class="absolute top-6 right-8" onClick={() => handleClick()}>
-      {theme === "light" ? "🌙" : "🌞"}
+    <button
+      class="absolute top-6 right-8 h-6 w-6"
+      onClick={() => handleClick()}
+    >
+      {theme === "light" ? <MoonIcon /> : <SunIcon />}
     </button>
   );
 }
