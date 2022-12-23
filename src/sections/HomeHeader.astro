@@ -2,7 +2,7 @@
 import { Image } from "@astrojs/image/components";
 import cn from "classnames";
 
-import Button from "../components/Button.astro";
+import GetInTouchButton from "../components/GetInTouchButton.preact";
 import SocialIconsList from "../components/SocialIconsList.astro";
 ---
 
@@ -32,10 +32,11 @@ import SocialIconsList from "../components/SocialIconsList.astro";
       together.
     </p>
     <div class="flex items-center">
-      <div class="mr-4 md:mr-6">
-        <Button>Get in touch</Button>
-      </div>
-      <SocialIconsList />
+      <div class="mr-4 md:mr-6"></div>
+      <!-- <SocialIconsList /> -->
+    </div>
+    <div>
+      <GetInTouchButton client:only />
     </div>
   </div>
 </div>

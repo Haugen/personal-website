@@ -1,4 +1,4 @@
-function MoonIcon() {
+export default function MoonIcon() {
   return (
     <svg
       version="1.1"
@@ -6,7 +6,7 @@ function MoonIcon() {
       viewBox="0 0 512 512"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       enable-background="new 0 0 512 512"
-      className="fill-zinc-900"
+      className="fill-zinc-400"
     >
       <g>
         <g>
@@ -16,5 +16,3 @@ function MoonIcon() {
     </svg>
   );
 }
-
-export default MoonIcon;

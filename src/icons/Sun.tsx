@@ -1,4 +1,4 @@
-function SunIcon() {
+export default function SunIcon() {
   return (
     <svg
       version="1.1"
@@ -6,7 +6,7 @@ function SunIcon() {
       viewBox="0 0 512 512"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       enable-background="new 0 0 512 512"
-      className="fill-zinc-100"
+      className="fill-zinc-500"
     >
       <g>
         <g>
@@ -24,5 +24,3 @@ function SunIcon() {
     </svg>
   );
 }
-
-export default SunIcon;
