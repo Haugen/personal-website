@@ -46,10 +46,10 @@ const { title } = Astro.props;
     <!-- <div
       class="h-2 bg-gradient-to-l via-green-300 from-blue-300 to-red-300 dark:opacity-50"
     > -->
+    <ThemeToggler client:load />
+    <Container>
+      <slot />
+    </Container>
+    <Footer />
   </body>
 </html>
-<ThemeToggler client:load />
-<Container>
-  <slot />
-</Container>
-<Footer />
