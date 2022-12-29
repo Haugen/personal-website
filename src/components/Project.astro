@@ -3,7 +3,8 @@ import { Image } from "@astrojs/image/components";
 
 interface BaseProps {
   title: string;
-  skills: string[];
+  url?: string;
+  skills?: string[];
 }
 interface VideoProps extends BaseProps {
   videoUrl: string;
@@ -14,7 +15,7 @@ interface ImageProps extends BaseProps {
 
 export type Props = VideoProps | ImageProps;
 
-const { imageUrl, videoUrl, title, skills } = Astro.props;
+const { imageUrl, videoUrl, title, skills, url } = Astro.props;
 ---
 
 <div>
@@ -35,7 +36,16 @@ const { imageUrl, videoUrl, title, skills } = Astro.props;
       </video>
     )
   }
-  <h3 class="text-xl md:text-3xl mt-8 mb-4">{title}</h3>
+  <h3 class="text-xl md:text-3xl mt-8 mb-4">
+    {
+      url ? (
+        <a href={url} target="_blank" rel="noreferrer">
+          {title}
+        </a>
+      ) : (
+        <>{title}</>
+      )
+    }
+  </h3>
   <p class="mb-4"><slot /></p>
-  <!-- <p class="text-lg">{skills.join(" · ")}</p> -->
 </div>
