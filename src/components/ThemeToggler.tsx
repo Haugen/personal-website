@@ -29,10 +29,7 @@ export default function ThemeToggle() {
   if (!isMounted) return null;
 
   return (
-    <button
-      class="absolute top-6 right-8 h-6 w-6"
-      onClick={() => handleClick()}
-    >
+    <button class="h-6 w-6" onClick={() => handleClick()}>
       {theme === "light" ? <MoonIcon /> : <SunIcon />}
     </button>
   );

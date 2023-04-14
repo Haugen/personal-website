@@ -1,12 +1,21 @@
 ---
+import PageTitle from "../components/PageTitle.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <h1>{frontmatter.title}</h1>
-  <p>Published {frontmatter.pubDate.slice(0, 10)}</p>
-
-  <slot />
+  <PageTitle className="md:mb-8">{frontmatter.title}</PageTitle>
+  <div class="text-center mb-16">
+    <p>Published {frontmatter.pubDate.slice(0, 10)}</p>
+    {
+      frontmatter.updatedDate && (
+        <p>Last updated {frontmatter.pubDate.slice(0, 10)}</p>
+      )
+    }
+  </div>
+  <div class="max-w-2xl mx-auto">
+    <slot />
+  </div>
 </BaseLayout>
