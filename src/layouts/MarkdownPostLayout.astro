@@ -12,7 +12,7 @@ const { frontmatter } = Astro.props;
     <p>Published {frontmatter.pubDate.slice(0, 10)}</p>
     {
       frontmatter.updatedDate && (
-        <p>Last updated {frontmatter.pubDate.slice(0, 10)}</p>
+        <p>Last updated {frontmatter.updatedDate.slice(0, 10)}</p>
       )
     }
   </div>
