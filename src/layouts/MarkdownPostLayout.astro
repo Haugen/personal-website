@@ -19,7 +19,8 @@ const { frontmatter } = Astro.props;
   <article
     class={cn(
       "prose prose-zinc dark:prose-invert lg:prose-xl mx-auto pb-16",
-      "prose-code:before:hidden prose-code:after:hidden" // Remove the backticks for inline code
+      "prose-code:before:hidden prose-code:after:hidden", // Remove the backticks for inline code
+      "prose-a:no-underline"
     )}
   >
     <slot />

@@ -18,6 +18,10 @@ The first type of shortcut you need to consider is moving around in your editor.
 
 Toggle between file explorer and open file. When in file explorer, use arrow keys to navigate and `space` to open a file.
 
+#### `Fn + Shift + F10`
+
+Open context menu. Useful for when you're in the file explorer, and want to "right click" to create a new file or folder, for example.
+
 #### `Cmd + F`
 
 Free text search in your current file.
