@@ -2,7 +2,7 @@
 title: "What I Do"
 publishedDate: 2023-05-20
 tags: ["What I Do", "CV"]
-published: false
+draft: true
 ---
 
 I’m on a mission to increase **wellbeing** and **performance** in tech organizations.

@@ -5,9 +5,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPostTeaser from "../components/BlogPostTeaser.astro";
 import PageTitle from "../components/PageTitle.astro";
 
-const allPosts = await getCollection(
-  "posts",
-  ({ data }) => import.meta.env.DEV || data.published,
+const allPosts = await getCollection("posts", ({ data }) =>
+  import.meta.env.PROD ? data.draft !== true : true,
 );
 ---
 

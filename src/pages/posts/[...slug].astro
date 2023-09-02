@@ -20,6 +20,7 @@ const { Content } = await entry.render();
 ---
 
 <BaseLayout title={entry.data.title}>
+  {entry.data.draft && <div class="text-center">draft</div>}
   <PageTitle className="md:mb-8">{entry.data.title}</PageTitle>
   <div class="text-center mb-16">
     <p>Published {entry.data.publishedDate.toLocaleDateString("sv-SE")}</p>

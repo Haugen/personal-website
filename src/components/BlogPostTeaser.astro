@@ -15,4 +15,5 @@ const { post } = Astro.props;
   <div class="text-zinc-700 dark:text-zinc-400">
     Published: {post.data.publishedDate.toLocaleDateString("sv-SE")}
   </div>
+  {post.data.draft && <div>draft</div>}
 </div>
