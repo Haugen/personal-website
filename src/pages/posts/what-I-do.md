@@ -27,10 +27,6 @@ What I enjoy the most is helping teams and organizations move towards the Best C
 
 I love tech, and making teams thrive. Whichever role I’m in I make sure to always bring good vibes to work. **Wellbeing** and **performance** is central to what I do. If you’re in need of roles like [Tech Lead](#tech-lead), [Product Owner](#product-owner) and [Frontend/Fullstack engineer](#frontendfullstack-engineer), I might be a good fit for you.
 
-<!---
-OBS! Någon slags visuell data för varje roll. Low, medium, high. Färger. Staplar. Experience (XP). Interest (Lightbulb).
--->
-
 ### Tech Lead
 
 This is where I most **enjoy** my work. As a tech lead, I help small to medium sized teams build technical products together, and take responsibility over the technical delivery. I coach and mentor junior engineers, and spent a lot of time with the engineering team to help them with whatever challenges they’re facing. I also help Product plan and guide the team on what to do, and when to do it.

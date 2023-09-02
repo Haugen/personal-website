@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 import GetInTouchButton from "../components/GetInTouchButton.preact";
 import PageTitle from "../components/PageTitle.astro";
@@ -12,7 +12,7 @@ import PageTitle from "../components/PageTitle.astro";
   <Image
     src="/profile_pic.jpg"
     width={250}
-    aspectRatio="1:1"
+    height={250}
     alt="Image of Tobias"
     class="rounded-full mb-16 md:mb-0 md:mr-16 mx-auto"
   />

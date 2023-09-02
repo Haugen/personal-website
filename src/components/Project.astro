@@ -1,21 +1,14 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
-interface BaseProps {
+type Props = {
   title: string;
   url?: string;
-  skills?: string[];
-}
-interface VideoProps extends BaseProps {
-  videoUrl: string;
-}
-interface ImageProps extends BaseProps {
-  imageUrl: string;
-}
+  videoUrl?: string;
+  imageUrl?: string;
+};
 
-export type Props = VideoProps | ImageProps;
-
-const { imageUrl, videoUrl, title, skills, url } = Astro.props;
+const { imageUrl, videoUrl, title, url } = Astro.props;
 ---
 
 <div>
