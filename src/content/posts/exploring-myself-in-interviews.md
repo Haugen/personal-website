@@ -1,7 +1,6 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: "Exploring Myself in Job Interviews"
-pubDate: 2023-04-02
+publishedDate: 2023-04-02
 tags: ["interviewing", "professional growth", "personal growth"]
 ---
 

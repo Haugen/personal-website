@@ -1,10 +1,8 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: "What I Do"
-slug: "/what-i-do"
-pubDate: 2023-05-20
+publishedDate: 2023-05-20
 tags: ["What I Do", "CV"]
-draft: false
+published: false
 ---
 
 I’m on a mission to increase **wellbeing** and **performance** in tech organizations.

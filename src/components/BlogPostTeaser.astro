@@ -1,16 +1,18 @@
 ---
-import type { MarkdownInstance } from "astro";
+import type { CollectionEntry } from "astro:content";
 
 export type Props = {
-  post: MarkdownInstance<Record<string, any>>;
+  post: CollectionEntry<"posts">;
 };
 
 const { post } = Astro.props;
 ---
 
 <div class="mb-8">
-  <h2 class="text-3xl mb-4"><a href={post.url}>{post.frontmatter.title}</a></h2>
+  <h2 class="text-3xl mb-4">
+    <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+  </h2>
   <div class="text-zinc-700 dark:text-zinc-400">
-    {post.frontmatter.pubDate.slice(0, 10)}
+    Published: {post.data.publishedDate.toLocaleDateString("sv-SE")}
   </div>
 </div>

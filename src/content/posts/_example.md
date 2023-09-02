@@ -1,9 +1,8 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
-title: "Once and for all: What is a reverse proxy?"
-pubDate: 2023-04-25
-tags: ["DevOps"]
-draft: true
+title: "Useful VS Code shortcuts"
+pubDate: 2022-11-26
+updatedDate: 2023-04-14
+tags: ["vs code", "productivity", "tech"]
 ---
 
 ## Another title

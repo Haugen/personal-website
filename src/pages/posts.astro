@@ -1,20 +1,21 @@
 ---
+import { getCollection } from "astro:content";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPostTeaser from "../components/BlogPostTeaser.astro";
 import PageTitle from "../components/PageTitle.astro";
 
-const allPosts = await Astro.glob("./posts/*.md");
+const allPosts = await getCollection(
+  "posts",
+  ({ data }) => import.meta.env.DEV || data.published,
+);
 ---
 
 <BaseLayout title="Posts">
   <main>
     <PageTitle>Posts</PageTitle>
     <div class="max-w-xl mx-auto">
-      {
-        allPosts
-          .filter((post) => !post.frontmatter.draft)
-          .map((post) => <BlogPostTeaser post={post} />)
-      }
+      {allPosts.map((post) => <BlogPostTeaser post={post} />)}
     </div>
   </main>
 </BaseLayout>

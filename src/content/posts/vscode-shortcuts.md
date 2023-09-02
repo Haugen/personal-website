@@ -1,7 +1,6 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: "Useful VS Code shortcuts"
-pubDate: 2022-11-26
+publishedDate: 2022-11-26
 updatedDate: 2023-04-17
 tags: ["vs code", "productivity", "tech"]
 ---

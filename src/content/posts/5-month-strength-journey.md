@@ -1,7 +1,6 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: "Discovering Strength: My 5-Month Journey and the Two Habits That Changed My Fitness Game"
-pubDate: 2023-04-19
+publishedDate: 2023-04-19
 tags: ["health", "exercise", "weight lifting", "discipline", "habits"]
 ---
 
