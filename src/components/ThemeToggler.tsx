@@ -6,7 +6,7 @@ import SunIcon from "../icons/Sun";
 export default function ThemeToggle() {
   const [isMounted, setIsMounted] = useState(false);
   const [theme, setTheme] = useState(
-    localStorage.getItem("fluffy_theme") ?? "light"
+    localStorage.getItem("fluffy_theme") ?? "light",
   );
 
   const handleClick = () => {
@@ -19,9 +19,9 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+      document.getElementsByTagName("body")[0].classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      document.getElementsByTagName("body")[0].classList.remove("dark");
     }
     localStorage.setItem("fluffy_theme", theme);
   }, [theme]);

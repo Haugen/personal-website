@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 import Container from "../components/Container.astro";
 import Footer from "../sections/Footer.astro";
 import Header from "../sections/Header.astro";
@@ -30,9 +32,9 @@ const {
   })();
 
   if (theme === "light") {
-    document.documentElement.classList.remove("dark");
+    document.getElementsByTagName("body")[0].classList.remove("dark");
   } else {
-    document.documentElement.classList.add("dark");
+    document.getElementsByTagName("body")[0].classList.add("dark");
   }
   window.localStorage.setItem("fluffy_theme", theme);
 </script>
@@ -45,12 +47,17 @@ const {
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
-    <Container>
-      <Header />
-      <slot />
-    </Container>
-    <Footer />
+    <div
+      class="bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-300 min-h-[100vh] flex flex-col justify-between"
+    >
+      <Container>
+        <Header />
+        <slot />
+      </Container>
+      <Footer />
+    </div>
   </body>
 </html>

@@ -5,8 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-300
-    antialiased transition-all duration-500;
+  @apply antialiased transition-all duration-500;
 }
 
 a {
@@ -14,6 +13,5 @@ a {
 }
 
 code {
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: Menlo, Monaco, monospace;
 }

@@ -11,10 +11,10 @@ const allPosts = await getCollection("posts", ({ data }) =>
 ---
 
 <BaseLayout title="Posts">
-  <main>
+  <div>
     <PageTitle>Posts</PageTitle>
     <div class="max-w-xl mx-auto">
       {allPosts.map((post) => <BlogPostTeaser post={post} />)}
     </div>
-  </main>
+  </div>
 </BaseLayout>
