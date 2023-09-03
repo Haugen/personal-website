@@ -19,9 +19,9 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     if (theme === "dark") {
-      document.getElementsByTagName("body")[0].classList.add("dark");
+      document.querySelector("body")?.classList.add("dark");
     } else {
-      document.getElementsByTagName("body")[0].classList.remove("dark");
+      document.querySelector("body")?.classList.remove("dark");
     }
     localStorage.setItem("fluffy_theme", theme);
   }, [theme]);

@@ -17,28 +17,6 @@ const {
 } = Astro.props;
 ---
 
-<script is:inline>
-  const theme = (() => {
-    if (
-      typeof localStorage !== "undefined" &&
-      localStorage.getItem("fluffy_theme")
-    ) {
-      return localStorage.getItem("fluffy_theme");
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  })();
-
-  if (theme === "light") {
-    document.getElementsByTagName("body")[0].classList.remove("dark");
-  } else {
-    document.getElementsByTagName("body")[0].classList.add("dark");
-  }
-  window.localStorage.setItem("fluffy_theme", theme);
-</script>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -47,7 +25,7 @@ const {
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ViewTransitions fallback="swap" />
   </head>
   <body>
     <div
@@ -59,5 +37,27 @@ const {
       </Container>
       <Footer />
     </div>
+
+    <script>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("fluffy_theme")
+        ) {
+          return localStorage.getItem("fluffy_theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.querySelector("body").classList.remove("dark");
+      } else {
+        document.querySelector("body").classList.add("dark");
+      }
+      window.localStorage.setItem("fluffy_theme", theme);
+    </script>
   </body>
 </html>

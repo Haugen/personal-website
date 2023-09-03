@@ -8,10 +8,14 @@ export type Props = {
 const { post } = Astro.props;
 ---
 
-<div class="mb-8">
-  <h2 class="text-3xl mb-4">
-    <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-  </h2>
+<div transition:name={`post-title-${post.slug}`} class="mb-16">
+  <div>
+    <h2 class="text-3xl mb-4 font-bold">
+      <a class="border-0 hover:border-0" href={`/posts/${post.slug}`}
+        >{post.data.title}</a
+      >
+    </h2>
+  </div>
   <div class="text-zinc-700 dark:text-zinc-400">
     Published: {post.data.publishedDate.toLocaleDateString("sv-SE")}
   </div>
