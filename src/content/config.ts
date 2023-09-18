@@ -11,6 +11,17 @@ const postsCollection = defineCollection({
   }),
 });
 
+const htmlCssCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    draft: z.boolean().default(false),
+    title: z.string(),
+    publishedDate: z.date(),
+    updatedDate: z.date().optional(),
+  }),
+});
+
 export const collections = {
   posts: postsCollection,
+  htmlCss: htmlCssCollection,
 };
