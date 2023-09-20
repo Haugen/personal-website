@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 
-import { cn } from "../../utils/helpers";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import DefaultHeader from "../../components/article/DefaultHeader.astro";
+import DefaultBody from "../../components/article/DefaultBody.astro";
 
-// 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const entries = await getCollection("html-css");
   return entries.map((entry) => ({
@@ -13,43 +13,14 @@ export async function getStaticPaths() {
   }));
 }
 
-// 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
 <BaseLayout title={entry.data.title}>
-  <div class="max-w-2xl m-auto">
-    {entry.data.draft && <div>draft</div>}
-    <div transition:name={`post-title-${entry.slug}`}>
-      <h1 class="text-3xl font-bold mb-4">{entry.data.title}</h1>
-      <div
-        class="mb-8 pb-8 border-b border-zinc-300 dark:border-zinc-600 text-zinc-700 dark:text-zinc-400"
-      >
-        <p>
-          Published: {entry.data.publishedDate.toLocaleDateString("sv-SE")}
-        </p>
-        {
-          entry.data.updatedDate && (
-            <p>
-              Last updated{" "}
-              {entry.data.publishedDate.toLocaleDateString("sv-SE")}
-            </p>
-          )
-        }
-      </div>
-    </div>
-  </div>
+  <DefaultHeader entry={entry} />
 
-  <article
-    class={cn(
-      "prose prose-zinc dark:prose-invert lg:prose-xl mx-auto pb-16",
-      "prose-code:before:hidden prose-code:after:hidden", // Remove the backticks for inline code
-      "prose-a:no-underline prose",
-      "prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl",
-      "max-w-2xl",
-    )}
-  >
+  <DefaultBody>
     <Content />
-  </article>
+  </DefaultBody>
 </BaseLayout>

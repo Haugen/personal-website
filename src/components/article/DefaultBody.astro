@@ -1,0 +1,15 @@
+---
+import { cn } from "../../utils/helpers";
+---
+
+<article
+  class={cn(
+    "prose prose-zinc dark:prose-invert lg:prose-xl mx-auto pb-16",
+    "prose-code:before:hidden prose-code:after:hidden", // Remove the backticks for inline code
+    "prose-a:no-underline prose",
+    "prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl",
+    "max-w-3xl",
+  )}
+>
+  <slot />
+</article>
