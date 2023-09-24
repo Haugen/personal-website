@@ -1,11 +1,13 @@
 ---
-title: "HTML Intro"
+title: "An introduction to HTML"
+metaDescription: "HTML describes the structure of a website. In this quick and straight forward introduction you'll learn what HTML is, how it works, and how you can use it to start building your website."
 publishedDate: 2023-09-18
+updatedDate: 2023-09-24
 ---
 
-HTML is the language used to define the structure of a website. It tells the browser what the content of the website is. Titles, paragraphs, lists, links, images and videos. It's also where we describe the websites metadata, like the title you see in the browser tab, or content for search engines and social media to use when displaying a preview of your site. HTML has been these since the dawn of the world wide web, and the structure of every website you visit is described in it.
+HTML is the language used to define the structure of a website. It tells the browser what the content of the website is. Titles, paragraphs, lists, links, images, videos etc. It's also where we describe the websites metadata, like the title you see in the browser tab, or content for search engines and social media to use when displaying a preview of your site. HTML has been around since the dawn of the world wide web, and the structure of every website you visit is described in it.
 
-An HTML file is any file on your computer ending in `.html`. The conventional name for the homepage of your website is `index.html`. HTML is build up by a nest of HTML `tags`.
+An HTML file is any file on your computer ending in `.html`. The conventional name for the homepage of your website is `index.html`. HTML is build up by a structure of HTML `tags`.
 
 ```html
 <html>
@@ -16,7 +18,7 @@ An HTML file is any file on your computer ending in `.html`. The conventional na
 
 The `html` tag surrounds your whole website. It has an opening tag, `<html>`, and a closing tag, `</html>`. Within it, it has two other tags, `head` and `body`, both with opening and closing tags (but without any content in them). `html` is the **parent** of `head` and `body`, and `head` and `body` are **children** of `html`. `head` and `body` are also **siblings** to each other. These three adjectives, parent, child and sibling, are used to the describe the relationships between HTML tags.
 
-Inside head, your place your websites metadata. This is also where we import other files to our website, like CSS, or fonts from an external source like Google Fonts. Nothing we place inside the head tags will be visually displayed on our website. All the content of our website goes within the body tag.
+Inside head, you place your websites metadata. This is also where we import other files to our website, like CSS, or fonts from an external source like [Google Fonts](https://fonts.google.com/). Nothing we place inside the head tags will be visually displayed on our website. All the content of our website is places inside the body tag.
 
 ## Two types of HTML tags
 
@@ -31,19 +33,20 @@ The attribute `src` has a **value** of `my-image.jpg`. With the `img` tag, the b
 
 ## The semantic web
 
-It's important to use the correct HTML tag when we describe our content. A piece of text, for example, can be put inside a `<div>`, a generic tag used to describe a container or a section. But if the piece of text is the main title of our page, we should use the `<h1>` tag (heading 1). Using correct tags for your content helps in many ways. For example with accessibility.
+It's important to use the correct HTML tag when we describe our content. A piece of text, for example, can be placed inside a `<div>`, a generic tag used to describe a container or a section. But if the piece of text is the main title of our page, we should use the `<h1>` tag (heading 1). Using correct tags for your content helps in many ways, for example with accessibility.
 
-Nothing bad will happen if you end up with a lot of divs. It is probably the most common HTML tag, and looking at the structure of any website you will see them everywhere.
+Nothing bad will happen if you end up with a lot of divs. It is probably the most common HTML tag out there, and looking at the structure of any website you will see them everywhere.
 
-Here are some of the most common HTML tags: (Self closing tags end with `/`. The ones that don't have a corresponding closing tag)
+Here are some of the most common HTML tags: (Self closing tags end with `/`. Others have a corresponding closing tag)
 
 | Tag           | Description                                                   |
 | ------------- | ------------------------------------------------------------- |
 | `<h1>`        | Main page title                                               |
 | `<h2>...<h6>` | Additionally, five more levels of sub-titles are available    |
 | `<p>`         | Paragraph                                                     |
-| `<div>`       | General box/section/container                                 |
+| `<div>`       | Generic box/section/container                                 |
 | `<a>`         | Links                                                         |
+| `<span>`      | Generic inline element                                        |
 | `<button>`    | Buttons                                                       |
 | `<img />`     | Images                                                        |
 | `<video>`     | Videos                                                        |
@@ -53,7 +56,7 @@ Here are some of the most common HTML tags: (Self closing tags end with `/`. The
 
 There are over 100 HTML tags with different purposes, but just with the ones mentioned above you'll get a long way building out the structure of any website.
 
-HTML has not evolved much over the years. Much of the functionality, and the tags we are still using today, have been around since day 1. There have however been updates and additions added throughout the years. HTML5 was released in 2008, and have seen minor updates now and then over the years. With HTML5 a number of new tags arrived with the intention of reducing the usage of `div`. Instead of always using a generic container, we have other, more semantic, tags to describe _certain types_ of container. The most notable are:
+HTML has not evolved much over the years. Much of the functionality, and the tags we are still using today, have been around since day one. There have however been updates and additions added throughout the years. HTML5 was released in 2008, and have seen minor updates now and then over the years. With HTML5 a number of new tags arrived with the intention of reducing the usage of `div`. Instead of always using a generic container, we have other, more semantic, tags to describe _certain types_ of container. The most notable are:
 
 | Tag         | Description                                                                |
 | ----------- | -------------------------------------------------------------------------- |
@@ -114,7 +117,3 @@ Notice the _indentation_ in the document. Every child is indented four spaces fr
 ## Conclusion
 
 HTML describes the structure of your site. Within the `<head>` you include metadata for your site, and within `<body>` you include the content. HTML tags are either self closing, or come with an opening and closing tag. Attributes are additional key/value pairs. Some are generic for all elements, others are specific to specific elements, like the `href` attribute for an `<a>` tag. We try to make our HTML _semantic_, using the appropriate tags for our content.
-
-### Further reading
-
-- [HTML Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)

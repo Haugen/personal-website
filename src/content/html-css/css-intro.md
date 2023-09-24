@@ -1,6 +1,8 @@
 ---
-title: "CSS Intro"
+title: "An introduction to CSS"
+metaDescription: "CSS describes how HTML should look. Everything visual you see on the web, colors, fonts, layouts etc, are described with CSS. In this straight forward introduction you'll get to know how CSS works, and how you can use it to style your website."
 publishedDate: 2023-09-18
+updatedDate: 2023-09-24
 ---
 
 If HTML describes what things are, CSS tells the browser how things should look. We apply CSS to our HTML, i.e, we apply styling to our structure.
@@ -187,7 +189,7 @@ I recommend using the alternative box model when styling your websites.
 
 ### Block vs. inline
 
-In general, there are two ways for a HTML element to be displayed on your site. As a block, or inline. Each element has a default way of displaying itself. For example, `<div>`, `<p>` and `<h1>` are all block elements, while `<img>` and `<a>` are inline.
+In general, there are two ways for a HTML element to be displayed on your site. As a block, or inline. Each element has a default way of displaying itself. For example, `<div>`, `<p>` and `<h1>` are all block elements, while `<img>`, `<span>` and `<a>` are inline.
 
 Block elements will take up all available horizontal space (the full width of its parent), forcing itself to be displayed on it's own line. Inline elements will appear on the same line. You will notice more of this behavior as you build your site. Worth remembering is that you can use CSS to change the default value using the `display` property and `block` or `inline` (there are more values as well) as property value.
 
@@ -221,7 +223,3 @@ When first creating and HTML document, adding elements to the `body` tag, and vi
 ## Conclusion
 
 CSS applies styling to our HTML. We use _selectors_ to target what we want to apply styling to, and a combination of _properties_ and _property values_ to manage the look of our site. HTML elements can behave in one of two ways, `inline` or as a `block`. Many CSS properties are self explanatory, and can often be found by a Google search. The most common properties are for box layout, colors, text sizes and text style.
-
-### Further reading
-
-- [CSS Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)

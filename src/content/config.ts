@@ -16,6 +16,7 @@ const htmlCssCollection = defineCollection({
   schema: z.object({
     draft: z.boolean().default(false),
     title: z.string(),
+    metaDescription: z.string(),
     publishedDate: z.date(),
     updatedDate: z.date().optional(),
   }),
