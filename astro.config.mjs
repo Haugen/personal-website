@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [tailwind(), preact({
     compat: true
   })],
-  output: "server",
+  output: "hybrid",
   adapter: vercel({
     webAnalytics: {
       enabled: true,
