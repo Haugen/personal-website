@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/preact": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vercel": "^5.0.1",
     "@headlessui/react": "^1.7.7",
     "astro": "^3.0.7",
     "clsx": "^1.2.1",
