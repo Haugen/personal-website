@@ -34,8 +34,8 @@ As a first step, make sure you have a text editor and your preferred browser ins
 
 Two introduction articles are available for this first class.
 
-1. [An introduction to HTML](html-intro.md)
-2. [An introduction to CSS](css-intro.md)
+1. [An introduction to HTML](html-intro)
+2. [An introduction to CSS](css-intro)
 
 If you are completely new to HTML and CSS i recommend reading through both of them to get an initial sense of what it is and how it works.
 
