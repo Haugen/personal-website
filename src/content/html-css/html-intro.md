@@ -1,5 +1,5 @@
 ---
-title: "An introduction to HTML"
+title: "An introduction to HTML, HyperText Markup Language"
 metaDescription: "HTML describes the structure of a website. In this quick and straight forward introduction you'll learn what HTML is, how it works, and how you can use it to start building your website."
 publishedDate: 2023-09-18
 updatedDate: 2023-09-24

@@ -1,5 +1,5 @@
 ---
-title: "An introduction to CSS"
+title: "An introduction to CSS, Cascading Style Sheets"
 metaDescription: "CSS describes how HTML should look. Everything visual you see on the web, colors, fonts, layouts etc, are described with CSS. In this straight forward introduction you'll get to know how CSS works, and how you can use it to style your website."
 publishedDate: 2023-09-18
 updatedDate: 2023-09-24
@@ -208,11 +208,7 @@ To get started, here is a list of some of the most common and useful properties 
 | `background-color` | Background color                                             |
 | `font-size`        | Font size                                                    |
 | `font-family`      | Which font family to use                                     |
-| `line-height`      | Text line height                                             |
-| `letter-spacing`   | Text letter spacing                                          |
-| `text-decoration`  | Decorative lines on text. For example, `underline`           |
 | `font-weight`      | Text weight. Light, normal, **bold**                         |
-| `font-style`       | Additional style on text, for example _italic_               |
 
 CSS has a number of ways to set distances and sizes, for example `margin` or `font-size`. To get started, the easiest way is to use pixel values (for example `20px`). We'll discover other units than pixels further down the line.
 
