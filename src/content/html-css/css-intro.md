@@ -2,7 +2,7 @@
 title: "An introduction to CSS, Cascading Style Sheets"
 metaDescription: "CSS describes how HTML should look. Everything visual you see on the web, colors, fonts, layouts etc, are described with CSS. In this straight forward introduction you'll get to know how CSS works, and how you can use it to style your website."
 publishedDate: 2023-09-18
-updatedDate: 2023-09-24
+updatedDate: 2023-09-28
 ---
 
 If HTML describes what things are, CSS tells the browser how things should look. We apply CSS to our HTML, i.e, we apply styling to our structure.
@@ -74,13 +74,13 @@ Selectors are very flexible which allows us to always target exactly what we wan
 Every HTML tag allows for an attribute called `class`. Take the following example:
 
 ```html
-<div class="my-special-class">Content</div>
+<div class="special-content">Content</div>
 ```
 
 Adding your own class name in a HTML element lets you target this specifically in your CSS. The selector for this looks like this:
 
 ```css
-.my-special-class {
+.special-content {
   color: #ff0000;
 }
 ```

@@ -2,7 +2,7 @@
 title: "An introduction to HTML, HyperText Markup Language"
 metaDescription: "HTML describes the structure of a website. In this quick and straight forward introduction you'll learn what HTML is, how it works, and how you can use it to start building your website."
 publishedDate: 2023-09-18
-updatedDate: 2023-09-24
+updatedDate: 2023-09-28
 ---
 
 HTML is the language used to define the structure of a website. It tells the browser what the content of the website is. Titles, paragraphs, lists, links, images, videos etc. It's also where we describe the websites metadata, like the title you see in the browser tab, or content for search engines and social media to use when displaying a preview of your site. HTML has been around since the dawn of the world wide web, and the structure of every website you visit is described in it.
@@ -74,6 +74,7 @@ Using the correct semantics for your content is valuable for accessibility, as i
 
 Now that we have a sense of what HTML is, and have been introduced to a number of common HTML tags, let's look at an example of a very simple website. Consider the following:
 
+<!-- prettier-ignore -->
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +96,7 @@ Now that we have a sense of what HTML is, and have been introduced to a number o
 			</header>
 			<h1>My page title</h1>
 			<p>An intro paragraph</p>
-			<acticle>
+			<article>
 				<h2>A subtitle, perhaps the title of an article</h2>
 				<p>Perhaps lot's of text, in paragraphs</p>
 				<img src="images/cat.jpg" alt="A beautiful cat" />

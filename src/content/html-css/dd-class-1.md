@@ -1,6 +1,7 @@
 ---
 title: "YRGO DD 2023 - Class 1"
 publishedDate: 2024-09-24
+updatedDate: 2024-09-28
 ---
 
 ## Schedule
@@ -18,7 +19,7 @@ This course, called "Frontendutveckling" is scheduled as following throughout th
 | 17/11 | 09-15 | Class 7               |
 | 1/12  | 09-12 | Presentation!         |
 
-The goal with this first class is to get our environment setup (browser and text editor) and get a first introduction to HTML, CSS and the browser dev tools.
+The goal with this course is to get a good understanding on how HTML and CSS works in the browser, and hands on experience designing and building your own website. In this first class, we'll get our environment setup (browser and text editor) and start familiarizing ourselves with the basics of HTML, CSS and the browser dev tools.
 
 ## Exercises
 
@@ -37,11 +38,11 @@ Two introduction articles are available for this first class.
 1. [An introduction to HTML](html-intro)
 2. [An introduction to CSS](css-intro)
 
-If you are completely new to HTML and CSS i recommend reading through both of them to get an initial sense of what it is and how it works.
+Whether you are completely new to HTML and CSS, or have built websites with it before, I recommend reading through both of them.
 
 ### 3. Setup your first website
 
-Create a new folder somewhere on your computer for this web portfolio project we'll be working with during this course. In it, create a file called `index.html`. This will be the homepage of your website. Copy the template below to your new HTML file:
+So we're done reading. Let's start building! Create a new folder somewhere on your computer for this web portfolio project we'll be working on during this course. In it, create a file called `index.html`. This will be the homepage of your website. Copy the template below to your new HTML file:
 
 <!-- prettier-ignore -->
 ```html
@@ -75,8 +76,8 @@ Now that we have an empty website, we can start adding some content to it. Popul
 
 Now that we have some content on the website, let's start styling it.
 
-1. Create a new stylesheet called `styles.css` and import inside the `head` tag in your HTML file.
-1. The default background color is white (the hexadecimal value `#FFFFFF`). Change the background color of `body` to something else and confirm in the browser that it works.
+1. Create a new stylesheet called `styles.css` and import it inside the `head` tag in your HTML file.
+1. The default background color of `body` is white (the hexadecimal value `#FFFFFF`). Change the `background-color`` of `body` to something else and confirm in the browser that it works.
 
 ### 6. Resetting and adding default styles
 
@@ -86,6 +87,7 @@ Once we have a stylesheet connected to our website, let's look at resetting some
 1. Reset the margin (use `margin: 0`) on the `body` element.
 1. Links are blue and underline by default. Change this to something else. Perhaps just change the color, or apply more styling if you want.
 1. Add a default hover effect on your links.
+1. `<h1>`, `<h2>` and `<p>` also have default margins. Start by resetting the margins for these elements, and then add your own suitable `margin-bottom` to each one of them.
 
 ### 7. Putting your content in a container
 
