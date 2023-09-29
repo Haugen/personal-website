@@ -179,11 +179,11 @@ By default boxes will _grow_ when `padding` and `border` are added. For example,
 
 ```css
 * {
-  border-box: box-sizing;
+  box-sizing: border-box;
 }
 ```
 
-Changing the property `border-box` to `box-sizing` (from its default value of `content-box`) on _everything_ will not grow the box when border or padding is added. Instead, the space will grow _inwards_, respecting any width or height specified.
+Changing the property `box-sizing` to `border-box` (from its default value of `content-box`) on _everything_ will not grow the box when border or padding is added. Instead, the space will grow _inwards_, respecting any width or height specified.
 
 I recommend using the alternative box model when styling your websites.
 
