@@ -1,7 +1,7 @@
 ---
 title: "YRGO DD 2023 - Class 1"
 publishedDate: 2024-09-24
-updatedDate: 2024-09-28
+updatedDate: 2024-10-04
 ---
 
 ## Schedule
@@ -11,7 +11,7 @@ This course, called "Frontendutveckling" is scheduled as following throughout th
 | Date  | Time  | Description           |
 | ----- | ----- | --------------------- |
 | 29/9  | 09-15 | Class 1, introduction |
-| 6/10  | 09-15 | Class 2               |
+| 6/10  | 09-15 | Class 2, typography   |
 | 20/10 | 09-15 | Class 3               |
 | 27/10 | 09-15 | Class 4               |
 | 3/11  | 09-15 | Class 5               |
