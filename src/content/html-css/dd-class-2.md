@@ -1,6 +1,7 @@
 ---
 title: "YRGO DD 2023 - Class 2"
 publishedDate: 2024-10-04
+updatedDate: 2024-10-05
 ---
 
 In this second class, let's continue familiarizing ourselves with the basics of HTML and CSS, as well as taking a close look on how typography works on the web.
@@ -67,4 +68,6 @@ If you didn't get to it in the precious class, [go back to the previous class an
 
 ### 5. Done?
 
-We will learn more about creating layouts and aligning boxes with each other in the next class. If you're already curious about this, you can start looking in to the [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) in CSS.
+We will learn more about layouts and alignment of sections in the next class. If you're already curious about this, you can start looking in to the [Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) in CSS.
+
+Also, feel free to think about and sketch on the overall layout you want for your portfolio, as well as choosing the right typography and colors for your site.
