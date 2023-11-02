@@ -53,11 +53,11 @@ const {
       })();
 
       if (theme === "light") {
-        document.querySelector("body").classList.remove("dark");
+        document.querySelector("body")?.classList.remove("dark");
       } else {
-        document.querySelector("body").classList.add("dark");
+        document.querySelector("body")?.classList.add("dark");
       }
-      window.localStorage.setItem("fluffy_theme", theme);
+      window.localStorage.setItem("fluffy_theme", theme || "light");
     </script>
   </body>
 </html>

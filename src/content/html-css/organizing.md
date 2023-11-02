@@ -2,9 +2,12 @@
 title: "Organizing your code"
 metaDescription: "As your CSS and HTML files grow larger, they become harder to manage and maintain. This is a short article on how to split your code into multiple files to help keep things more organized."
 publishedDate: 2023-11-01
+updatedDate: 2023-11-02
 ---
 
 As our HTML and CSS files grow, they become harder to maintain and keep organized. This is hard to avoid, but there are some things we can do to help keep things manageable.
+
+But before we look at tips on how to organize, let's get a little bit familiar with how browsers decide which styling to apply.
 
 ## The "Cascading" Part of CSS
 
@@ -33,16 +36,16 @@ What color will the `<h2>` element be? Blue or red? This is very common for larg
 
 ### Order
 
-In general, the order that we place our CSS selectors matter. In most cases, the browser will pick value of the **last** occurrence of a property. This means that the CSS you write further down in your CSS file will _override_ CSS you write further up in the CSS file.
+In general, the order that we place our CSS selectors in matter. In most cases, the browser will pick the value of the **last** occurrence of a property. This means that the CSS you write further down in your file will _override_ CSS you write further up in the file.
 
 ### Specificity
 
 Just like with everything in life, the reality is a bit more complicated. Other than order, the browser also takes into account how _specific_ a selector is. The most important thing to keep in mind here are
 
-1. class selectors are more specific than element selectors.
+1. `class` selectors are more specific than element selectors.
 1. The more you "nest" your selector, the more specific it gets.
 
-Looking at our example above again, is our `<h2>` tag blue or red? Looking at the order, we might thing it will be red. But since the `.demo` selector is more specific than the `h2` selector, the element will in this case be blue.
+Considering our example above again, is our `<h2>` blue or red? Looking at the order, we might thing it will be red. But since the `.demo` selector is more specific than the `h2` selector, the element will in this case be blue.
 
 ### Another Example
 
@@ -132,13 +135,31 @@ But what if we want more than just one front page on our website? As described i
 
 ```html
 <nav>
-  <a href="/">Home</a>
-  <a href="/about">About</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
 </nav>
 ```
 
-We probably want the "Heading" or "Navigation" part of our site to be present at the top of every one of our pages. With the setup we have, just working with raw .html and .css files, we will need to copy and paste our HTML code for our header into every HTML file. That way, the header and navigation will be present on top, and the content that follows will be different between our pages.
+We probably want the "Heading" or "Navigation" part of our site to be present at the top of every one of our pages. With the setup we have, just working with raw .html and .css files, we will need to copy and paste our HTML code for our header into every HTML file. That way, the header and navigation will be present on top, and the content that follows will be different between our pages. Most likely you'll want to do the same thing with your footer.
 
 ### More CSS Files
 
-So far most of you have worked exclusively with a single CSS files, perhaps called something like `style.css`. There are no issues keeping all of our CSS in a single file, but as our file grows you might find it useful to split your code up into different files. For example.
+So far most of you have worked exclusively with a single CSS files, perhaps called something like `style.css`. There are no issues keeping all of our CSS in a single file, but as our file grows you might find it useful to split your code up into different files. For example, you could keep some "base" styling, CSS that should apply to and be available on all of your pages, in a `base.css` file.
+CSS only relevant to your homepage (index.html) could go in a separate file, perhaps called `homepage.css`. You could then import both in the `<head>` in your HTML file.
+
+```html
+<head>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="homepage.css" />
+</head>
+```
+
+You can keep adding more CSS files if you find it useful. But don't forget, you need to import each individual file as shown above.
+
+Remember the "cascading" part we talked about earlier? This is important here as well. Just as CSS further down in your file can override CSS written higher up in your file, the **import order** matter in just the same way. In the example above, CSS written in the `homepage.css` file could override CSS written in `base.css`.
+
+Another way to keep things organized could be keeping your media query specific CSS in separate files. For example, a `homepage-mobile.css` could hold all CSS related to mobile specific styling on your homepage.
+
+## Conclusion
+
+Keeping your source code organized can be hard, especially the more it grows. Hopefully some of these tips will be helpful in trying to keep things manageable. Try to not repeat code too much, group related CSS together, try to name things properly, and try splitting CSS into multiple files. Discuss with your classmates, and do whatever makes the most sense to you.
