@@ -80,3 +80,4 @@ Try adding the property to an element on your own site and play around with the 
 - [CSS has quite a few filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter) built in, which can be applied to most elements. Typically used on images, but can often add interesting effects to large pieces of text as well, like headlines.
 - With `mix-blend-mode` you can [control how the content of an element should blend](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode) with its surrounding colors.
 - Similar to box-shadow, you can use `text-shadow` to [add shadow effects to text](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow).
+- You know the little icon shown in the browser tab for a website? That's the websites `favicon`, and if you want, you can [add your own](https://www.w3schools.com/html/html_favicon.asp). Favicons are usually 16x16 pixels in size.
