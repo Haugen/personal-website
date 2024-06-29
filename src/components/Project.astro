@@ -6,9 +6,10 @@ type Props = {
   url?: string;
   videoUrl?: string;
   imageUrl?: string;
+  loading?: "lazy" | "eager";
 };
 
-const { imageUrl, videoUrl, title, url } = Astro.props;
+const { title, url, imageUrl, videoUrl, loading = "lazy" } = Astro.props;
 ---
 
 <div>
@@ -18,7 +19,8 @@ const { imageUrl, videoUrl, title, url } = Astro.props;
         src={imageUrl}
         width={1000}
         height={562}
-        alt={`${title} project image`}
+        alt={`${title} project`}
+        loading={loading}
       />
     )
   }

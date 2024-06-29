@@ -2,31 +2,28 @@
 import { Image } from "astro:assets";
 
 import GetInTouchButton from "../components/GetInTouchButton.preact";
-import PageTitle from "../components/PageTitle.astro";
 ---
 
-<PageTitle>
-  I’m on a mission to increase wellbeing and performance in tech organizations.
-</PageTitle>
 <div class="flex items-center flex-col md:flex-row xl:mx-40 mb-36">
   <Image
     src="/profile_pic.jpg"
     width={250}
     height={250}
-    alt="Image of Tobias"
+    loading="eager"
+    alt="Tobias Haugen portrait"
     class="rounded-full mb-16 md:mb-0 md:mr-16 mx-auto"
   />
   <div>
-    <p class="text-2xl lg:text-3xl mb-4">Hi there. I'm Tobias,</p>
+    <h1 class="text-2xl lg:text-5xl mb-4">Hi there. I'm Tobias</h1>
     <p class="mb-8 text-xl">
-      As a seasoned Tech Leader, my goal is to enhance both wellbeing and
-      performance in tech organizations. I value healthy, positive environments
-      that lead to happier employees and, in turn, higher performance. As a Tech
-      Lead, Product Owner, or Engineer, my commitment is always to guide teams
-      towards their full potential.
+      I've always liked building things on the web. These days I run my own
+      small consultancy agency where I help businesses succeed in building
+      products online. I always focus on adding value in all areas of a project,
+      whether it's technical architecture, planning, process or collaboration.
+      Learn more about what I'm doing right <a href="/now">now</a>.
     </p>
     <div>
-      <GetInTouchButton client:only />
+      <GetInTouchButton client:only="preact" />
     </div>
   </div>
 </div>

@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/preact": "^3.0.0",
-    "@astrojs/tailwind": "^5.0.0",
-    "@astrojs/vercel": "^5.0.1",
+    "@astrojs/preact": "^3.5.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vercel": "^7.7.2",
     "@headlessui/react": "^1.7.7",
-    "astro": "^3.0.7",
+    "astro": "^4.11.3",
     "clsx": "^1.2.1",
     "preact": "^10.11.3",
     "tailwind-merge": "^1.12.0",
