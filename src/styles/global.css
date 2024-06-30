@@ -15,3 +15,9 @@ a {
 code {
   font-family: Menlo, Monaco, monospace;
 }
+
+@layer utilities {
+  .container {
+    @apply w-[1440px] max-w-full mx-auto px-4 md:px-8;
+  }
+}
