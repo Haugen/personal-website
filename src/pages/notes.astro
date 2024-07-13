@@ -13,15 +13,15 @@ const allNotes = await getCollection("notes", ({ data }) =>
 <BaseLayout title="Posts">
   <div>
     <PageTitle>Notes</PageTitle>
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-3xl mx-auto flex flex-col gap-2">
       {
         allNotes.map((note) => {
           return (
-            <div class="flex mb-1">
-              <span class="w-32">
+            <div class="flex">
+              <span class="w-28">
                 {note.data.publishedDate.toLocaleDateString("sv-SE")}
               </span>
-              <a class="border-0 hover:border-0" href={`/notes/${note.slug}`}>
+              <a class="hover:border-b" href={`/notes/${note.slug}`}>
                 {note.data.title}
               </a>
             </div>
