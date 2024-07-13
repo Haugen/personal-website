@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPostTeaser from "../components/BlogPostTeaser.astro";
+import PageTitle from "../components/PageTitle.astro";
+
+const allNotes = await getCollection("notes", ({ data }) =>
+  import.meta.env.PROD ? data.draft !== true : true,
+);
+---
+
+<BaseLayout title="Posts">
+  <div>
+    <PageTitle>Notes</PageTitle>
+    <div class="max-w-3xl mx-auto">
+      {
+        allNotes.map((note) => {
+          return (
+            <div class="flex mb-1">
+              <span class="w-32">
+                {note.data.publishedDate.toLocaleDateString("sv-SE")}
+              </span>
+              <a class="border-0 hover:border-0" href={`/notes/${note.slug}`}>
+                {note.data.title}
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</BaseLayout>

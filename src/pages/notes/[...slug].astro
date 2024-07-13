@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DefaultHeader from "../../components/article/DefaultHeader.astro";
+import DefaultBody from "../../components/article/DefaultBody.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("notes");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title}>
+  <DefaultHeader entry={entry} />
+
+  <DefaultBody>
+    <Content />
+  </DefaultBody>
+</BaseLayout>

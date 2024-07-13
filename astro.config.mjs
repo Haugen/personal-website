@@ -5,9 +5,12 @@ import vercel from "@astrojs/vercel/serverless";
 
 export default defineConfig({
   site: "https://www.tobiashaugen.se/",
-  integrations: [tailwind(), preact({
-    compat: true
-  })],
+  integrations: [
+    tailwind(),
+    preact({
+      compat: true,
+    }),
+  ],
   output: "hybrid",
   adapter: vercel({
     webAnalytics: {
@@ -16,5 +19,5 @@ export default defineConfig({
     speedInsights: {
       enabled: true,
     },
-  })
+  }),
 });
