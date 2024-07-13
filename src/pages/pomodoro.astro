@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageTitle from "../components/PageTitle.astro";
+---
+
+<script>
+  const START_TIME = 1500;
+  let timeSec = START_TIME;
+  let timer;
+  const audio = new Audio("/success-bell.mp3");
+
+  function startPomodoro() {
+    if (timer) return;
+
+    timer = setInterval(() => {
+      if (timeSec === 1) {
+        clearInterval(timer);
+        audio.play();
+      }
+      timeSec = timeSec - 1;
+      updateTime();
+    }, 1000);
+  }
+
+  function pausePomodoro() {
+    if (!timer) return;
+    clearInterval(timer);
+    timer = undefined;
+  }
+
+  function resetPomodoro() {
+    pausePomodoro();
+    timeSec = START_TIME;
+    updateTime();
+  }
+
+  function formatTime() {
+    const minutes = Math.floor(timeSec / 60);
+    let seconds = timeSec % 60;
+    if (seconds == 0) {
+      seconds = "00";
+    } else if (seconds < 10) {
+      seconds = `0${seconds}`;
+    }
+    return `${minutes}:${seconds}`;
+  }
+
+  function updateTime() {
+    const initialTime = formatTime();
+    timerDiv.innerText = initialTime;
+    document.title = initialTime;
+  }
+
+  const startButton = document.querySelector("#start-button");
+  const pauseButton = document.querySelector("#pause-button");
+  const resetButton = document.querySelector("#reset-button");
+  const sampleSoundButton = document.querySelector("#sample-sound-button");
+  const timerDiv = document.querySelector("#timer");
+
+  startButton.addEventListener("click", startPomodoro);
+  pauseButton.addEventListener("click", pausePomodoro);
+  resetButton.addEventListener("click", resetPomodoro);
+  sampleSoundButton.addEventListener("click", () => audio.play());
+  updateTime();
+</script>
+
+<BaseLayout title="Pomodoro">
+  <PageTitle>Pomodoro</PageTitle>
+  <p class="max-w-4xl text-center m-auto text-lg mb-16">
+    The <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+      >Pomodoro Technique</a
+    > is a time management method. Start the timer below, and work for 25 minutes.
+    When the timer reaches 0, a sound will go off (<button
+      id="sample-sound-button"
+      class="underline">play sound</button
+    >). Take a short break, and then start another Pomodoro.
+  </p>
+  <div class="flex flex-col items-center justify-center">
+    <div
+      class="text-4xl font-semibold border-4 rounded-full flex items-center justify-center h-56 w-56 mb-8"
+      id="timer"
+    >
+    </div>
+    <div class="flex gap-5">
+      <button id="start-button">Start</button>
+      <button id="pause-button">Pause</button>
+      <button id="reset-button">Reset</button>
+    </div>
+  </div>
+</BaseLayout>
