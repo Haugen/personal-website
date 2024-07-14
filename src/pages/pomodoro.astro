@@ -14,7 +14,7 @@ import { cn } from "../utils/helpers";
   const audio = new Audio("/success-bell.mp3");
 
   function startPomodoro() {
-    if (timer) return;
+    if (timeSec <= 0) return;
 
     timer = setInterval(() => {
       if (timeSec === 1) {
@@ -35,9 +35,7 @@ import { cn } from "../utils/helpers";
   }
 
   function pausePomodoro() {
-    if (!timer) return;
     clearInterval(timer);
-    timer = undefined;
     startButton.style.display = "inline";
     pauseButton.style.display = "none";
     timerDiv.classList.add("border-zinc-600");
@@ -89,11 +87,11 @@ import { cn } from "../utils/helpers";
   <p class="max-w-4xl text-center m-auto text-lg mb-16">
     The <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
       >Pomodoro Technique</a
-    > is a time management method. Start the timer below, and work for 25 minutes.
-    When the timer reaches 0, you'll hear a sound (<button
+    > is a time management method. Start the timer, and work for 25 minutes. When
+    it reaches 0, you'll hear a sound (<button
       id="sample-sound-button"
       class="underline">play sound</button
-    >). Take a short break, and then start another Pomodoro.
+    >). Take a short break, reset the clock, and start another Pomodoro.
   </p>
   <div class="flex flex-col items-center justify-center">
     <div
