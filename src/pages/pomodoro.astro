@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageTitle from "../components/PageTitle.astro";
+import Play from "../icons/play.astro";
+import Pause from "../icons/pause.astro";
+import Reset from "../icons/reset.astro";
+import { cn } from "../utils/helpers";
 ---
 
 <script>
@@ -20,12 +24,27 @@ import PageTitle from "../components/PageTitle.astro";
       timeSec = timeSec - 1;
       updateTime();
     }, 1000);
+
+    startButton.style.display = "none";
+    pauseButton.style.display = "inline";
+    timerDiv.classList.remove("border-zinc-600");
+    timerDiv.classList.remove("dark:border-zinc-400");
+    timerDiv.classList.remove("border-2");
+    timerDiv.classList.add("border-green-400");
+    timerDiv.classList.add("border-4");
   }
 
   function pausePomodoro() {
     if (!timer) return;
     clearInterval(timer);
     timer = undefined;
+    startButton.style.display = "inline";
+    pauseButton.style.display = "none";
+    timerDiv.classList.add("border-zinc-600");
+    timerDiv.classList.add("dark:border-zinc-400");
+    timerDiv.classList.add("border-2");
+    timerDiv.classList.remove("border-green-400");
+    timerDiv.classList.remove("border-4");
   }
 
   function resetPomodoro() {
@@ -59,6 +78,7 @@ import PageTitle from "../components/PageTitle.astro";
 
   startButton.addEventListener("click", startPomodoro);
   pauseButton.addEventListener("click", pausePomodoro);
+  pauseButton.style.display = "none";
   resetButton.addEventListener("click", resetPomodoro);
   sampleSoundButton.addEventListener("click", () => audio.play());
   updateTime();
@@ -70,21 +90,24 @@ import PageTitle from "../components/PageTitle.astro";
     The <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
       >Pomodoro Technique</a
     > is a time management method. Start the timer below, and work for 25 minutes.
-    When the timer reaches 0, a sound will go off (<button
+    When the timer reaches 0, you'll hear a sound (<button
       id="sample-sound-button"
       class="underline">play sound</button
     >). Take a short break, and then start another Pomodoro.
   </p>
   <div class="flex flex-col items-center justify-center">
     <div
-      class="text-4xl font-semibold border-4 rounded-full flex items-center justify-center h-56 w-56 mb-8"
+      class={cn(
+        "border-2 bg-zinc-200 dark:bg-zinc-800 border-zinc-600 dark:border-zinc-400 font-mono",
+        "text-4xl font-semibold rounded-full flex items-center justify-center h-56 w-56 mb-8",
+      )}
       id="timer"
     >
     </div>
     <div class="flex gap-5">
-      <button id="start-button">Start</button>
-      <button id="pause-button">Pause</button>
-      <button id="reset-button">Reset</button>
+      <button id="start-button"><Play /></button>
+      <button id="pause-button"><Pause /></button>
+      <button id="reset-button"><Reset /></button>
     </div>
   </div>
 </BaseLayout>
