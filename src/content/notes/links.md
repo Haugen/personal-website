@@ -14,3 +14,5 @@ A collection of links I might forget if I don't keep them around.
 ## Random goodies
 
 - https://learnhowtolearn.org/how-to-build-extremely-quickly/
+- https://payloadcms.com/
+

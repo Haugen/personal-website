@@ -2,7 +2,7 @@
 title: "An introduction to CSS, Cascading Style Sheets"
 metaDescription: "CSS describes how HTML should look. Everything visual you see on the web, colors, fonts, layouts etc, are described with CSS. In this straight forward introduction you'll get to know how CSS works, and how you can use it to style your website."
 publishedDate: 2023-09-18
-updatedDate: 2023-09-28
+updatedDate: 2024-09-26
 ---
 
 If HTML describes what things are, CSS tells the browser how things should look. We apply CSS to our HTML, i.e, we apply styling to our structure.
@@ -10,44 +10,6 @@ If HTML describes what things are, CSS tells the browser how things should look.
 A snippet of HTML can be made to look in virtually any way (within the limits of what our browsers can do) with CSS.
 
 This intro is long, but it will give you everything you need to get off to a good start in your CSS journey.
-
-## How to apply CSS
-
-There are three ways to apply CSS to our HTML.
-
-### A separate .css file
-
-CSS can be written in a .css file, for example `style.css`, and imported into the HTML document. We import CSS files within the `<head>` section, using the `<link>` tag with the **attributes** `rel` and `href`, and the HTML for doing that looks like this:
-
-```html
-<link rel="stylesheet" href="style.css" />
-```
-
-`href` is the file path to your external stylesheet. If the file is in a subfolder called "assets" the value of `href` will instead look like `assets/style.css`.
-
-Using a separate CSS file is the most common way to include CSS on your website, and is the recommended way in this course.
-
-### Directly inside `<head>`
-
-Instead of keeping CSS in a separate file, you can also include it directly inside `<head>`, by opening and closing a `<style>` tag. The HTML for that looks like this:
-
-```html
-<head>
-  <style>
-    body {
-      background-color: #00ff00;
-    }
-  </style>
-</head>
-```
-
-### Inline styling
-
-CSS can also be applied _inline_, directly on any HTML tag, using the `style` attribute, like this:
-
-```html
-<div style="color: #ff0000">Content</div>
-```
 
 ## The building blocks of CSS
 
@@ -65,9 +27,51 @@ Between the curly brackets we have a _declaration_. The left side of the colon i
 
 Including the CSS above on your website will target every `<p>` tag on your site, and change the text color to the hexadecimal color value `#0000ff`.
 
+## How to apply CSS
+
+Before we go into more details on how to style HTML with CSS, let's look at _where_ we put our CSS. There are three ways to apply CSS to our HTML.
+
+### 1. A separate .css file
+
+CSS can be written in a .css file, for example `style.css`, and imported into the HTML document. We import CSS files within the `<head>` section, using the `<link>` tag with the **attributes** `rel` and `href`, and the HTML for doing that looks like this:
+
+```html
+<link rel="stylesheet" href="style.css" />
+```
+
+`href` is the file path to your external stylesheet. If the file is in a subfolder called "assets" the value of `href` will instead look like `assets/style.css`.
+
+Using a separate CSS file is the most common way to include CSS on your website, and is the recommended way in this course.
+
+### 2. Directly inside `<head>`
+
+Instead of keeping CSS in a separate file, you can also include it directly inside `<head>`, by opening and closing a `<style>` tag. The HTML for that looks like this:
+
+```html
+<head>
+  <style>
+    body {
+      background-color: #00ff00;
+    }
+  </style>
+</head>
+```
+
+### 3. Inline styling
+
+CSS can also be applied _inline_, directly on any HTML tag, using the `style` attribute, like this:
+
+```html
+<div style="color: #ff0000">Content</div>
+```
+
+For the remainder of this course, we'll work with option 1, a separate .css file.
+
 ## Selectors
 
-Selectors are very flexible which allows us to always target exactly what we want in the HTML. We can always target HTML elements directly, like in the example above. The same goes for other tags like `div`, `h2`, `a` etc. But sometimes it's too generic to target every `div` or every `h2` on our site. To apply styling more narrowly, we can use the `class` attribute.
+Back to the CSS itself.
+
+Selectors (the piece of CSS that describes _which_ HTML to apply styling to) are very flexible which allows us to always target exactly what we want in the HTML. We can always target HTML elements directly, like in the earlier example. The same goes for other tags like `div`, `h2`, `a` etc. But sometimes it's too generic to target every `div` or every `h2` on our site. To apply styling more narrowly, we can use the `class` attribute.
 
 ### Class selector
 
@@ -86,6 +90,18 @@ Adding your own class name in a HTML element lets you target this specifically i
 ```
 
 When targeting class names, you start your selector with a dot. Note that you can add the same class on as many HTML elements as you want, and there is no limit to how many class names you can add to a single element.
+
+**The same class can be added to multiple HTML elements, and every HTML element can have as many classes as you need.**
+
+```html
+<p class="yrgo">This p tag has the class "yrgo"</p>
+<p class="yrgo another-class">
+  This p tag also has the class "yrgo", together with a second one.
+</p>
+<p class="yrgo another-class many-classes one-more">
+  This p tag has four classes
+</p>
+```
 
 ### Nesting selectors
 
@@ -172,20 +188,6 @@ margin: 10px 8px 4px;
 ```
 
 Shorthand CSS can be used with many other properties, which you'll encounter throughout the course.
-
-### The alternative box model
-
-By default boxes will _grow_ when `padding` and `border` are added. For example, imagine you have a `div` with a `width` of `200px`. Adding for example `padding: 10px` will _expand_ the box, making it `220px` (`10px` are added both left and right) wide instead of the specified 200. This behavior can be tricky to work with, and it's common to change this to use the so called alternative box model.
-
-```css
-* {
-  box-sizing: border-box;
-}
-```
-
-Changing the property `box-sizing` to `border-box` (from its default value of `content-box`) on _everything_ will not grow the box when border or padding is added. Instead, the space will grow _inwards_, respecting any width or height specified.
-
-I recommend using the alternative box model when styling your websites.
 
 ### Block vs. inline
 

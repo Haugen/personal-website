@@ -9,16 +9,51 @@ HTML is the language used to define the structure of a website. It tells the bro
 
 An HTML file is any file on your computer ending in `.html`. The conventional name for the homepage of your website is `index.html`. HTML is build up by a structure of HTML `tags`.
 
+## Introducing HTML tags
+
+An HTML tag is a description of what a piece of content is. One of the most common one is the `<p>` tag. It defined a piece of text, or a "paragraph".
+
 ```html
-<html>
-  <head></head>
-  <body></body>
-</html>
+<p>Inside a p tag we normally put text content.</p>
 ```
 
-The `html` tag surrounds your whole website. It has an opening tag, `<html>`, and a closing tag, `</html>`. Within it, it has two other tags, `head` and `body`, both with opening and closing tags (but without any content in them). `html` is the **parent** of `head` and `body`, and `head` and `body` are **children** of `html`. `head` and `body` are also **siblings** to each other. These three adjectives, parent, child and sibling, are used to the describe the relationships between HTML tags.
+Other common text related tags includes the "heading" tags. For example, `<h1>` is typically used for the page main title of your page. `<h2>`, or "heading 2" are used for sub-headings, or section headings. You can use heading tags all the way down to `<h6>`, although the most common ones are `<h1>` and `<h2>`.
 
-Inside head, you place your websites metadata. This is also where we import other files to our website, like CSS, or fonts from an external source like [Google Fonts](https://fonts.google.com/). Nothing we place inside the head tags will be visually displayed on our website. All the content of our website is places inside the body tag.
+```html
+<h1>Page title here</h1>
+<h2>A sub-title</h2>
+<p>And a paragraph below</p>
+```
+
+To manage the layout of our site, we often have to group things and put them in different "boxes". The common tag to use for this is a `<div>`. Here is an example of a box, with two boxes in it, each with some text content in them.
+
+```html
+<div>
+  <div>
+    <p>A paragraph in this box.</p>
+  </div>
+  <div>
+    <h2>Another box</h2>
+    <p>In this box we put more content.</p>
+  </div>
+</div>
+```
+
+### Introducing attributes
+
+All HTML tags can be "configured" using to called attributes. These are key/value pairs of content, describing additional information or configuration for the tag. The first example of this we'll look at is with the `<a>` tag, which is used to add links on your website.
+
+```html
+<a>Link text goes here</a>
+```
+
+Just as with previous tags, we put the link text inside of the `<a>` tag. But how do we tell the browser **where** this link should go? That's configured with the `href` attribute.
+
+```html
+<a href="https://www.yrgo.se/">Link to yrgo</a>
+```
+
+The `href` attribute is added _inside_ the opening tag. This way, the browser knows to navigate to the value in `href` when the content inside `<a>` is clicked.
 
 ## Two types of HTML tags
 
@@ -69,6 +104,19 @@ HTML has not evolved much over the years. Much of the functionality, and the tag
 | `<section>` | A generic section (similar to div, but typically used for larger sections) |
 
 Using the correct semantics for your content is valuable for accessibility, as it gives screen readers and other assistance tools help in understanding the content of your website. Even though we want to try and make our markup as semantic as possible, it's not wrong to use `div` . When in doubt, go for a `div`.
+
+## The page defining tags
+
+```html
+<html>
+  <head></head>
+  <body></body>
+</html>
+```
+
+The `html` tag surrounds your whole website. It has an opening tag, `<html>`, and a closing tag, `</html>`. Within it, it has two other tags, `head` and `body`, both with opening and closing tags (but without any content in them). `html` is the **parent** of `head` and `body`, and `head` and `body` are **children** of `html`. `head` and `body` are also **siblings** to each other. These three adjectives, parent, child and sibling, are used to the describe the relationships between HTML tags.
+
+Inside head, you place your websites metadata. This is also where we import other files to our website, like CSS, or fonts from an external source like [Google Fonts](https://fonts.google.com/). Nothing we place inside the head tags will be visually displayed on our website. All the content of our website is places inside the body tag.
 
 ## A first example
 

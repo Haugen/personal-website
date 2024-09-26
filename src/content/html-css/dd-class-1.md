@@ -1,25 +1,8 @@
 ---
-title: "YRGO DD 2023 - Class 1"
-publishedDate: 2024-09-24
-updatedDate: 2024-10-04
+title: "YRGO DD 2024 - Class 1"
+publishedDate: 2023-09-24
+updatedDate: 2024-09-26
 ---
-
-## Schedule
-
-This course, called "Frontendutveckling" is scheduled as following throughout the fall semester:
-
-| Date  | Time  | Description           |
-| ----- | ----- | --------------------- |
-| 29/9  | 09-15 | Class 1, introduction |
-| 6/10  | 09-15 | Class 2, typography   |
-| 20/10 | 09-15 | Class 3               |
-| 27/10 | 09-15 | Class 4               |
-| 3/11  | 09-15 | Class 5               |
-| 10/11 | 09-15 | Class 6               |
-| 17/11 | 09-15 | Class 7               |
-| 1/12  | 09-12 | Presentation!         |
-
-The goal with this course is to get a good understanding on how HTML and CSS works in the browser, and hands on experience designing and building your own website. In this first class, we'll get our environment setup (browser and text editor) and start familiarizing ourselves with the basics of HTML, CSS and the browser dev tools.
 
 ## Exercises
 
@@ -98,21 +81,7 @@ We have some content, and we've added some styling, but all of the content is al
 
 **Tips:** You can apply `max-width: 100%` to all `img` tags by default, not allowing images to grow larger than their containers.
 
-### 8. Tweak your site in dev tools
-
-Start by reading the [Introduction to browser dev tools](dev-tools-intro) to get a first introduction to what these tools are. Then open the dev tools on your website and explore the HTML and CSS you have previously written. Use the dev tools to make some changes to the CSS, and watch the changes being applied instantly on the page.
-
-### 9. Tweak the look of another website
-
-Go to one of your favorite websites, any website, and open the Dev Tools in your browser. Using the Dev Tools, make the following three changes on the site:
-
-1. Change the background color of something. Perhaps the `body`, or find some other tag and change/add `background-color` on it.
-1. Find a headline, and adjust the `font-size` of it.
-1. Find a container and add/change both `margin` and `padding` of it.
-
-Moving forward in this course, make a habit of spending time in the dev tools. It's an excellent and fast way to play around with your design, tweaking details, and testing things out.
-
-### 10. Done?
+### 8. Done?
 
 If you're done and feel you've familiarized yourself with HTML, CSS and the browser dev tools, feel free to work on a design for your portfolio. Browse the web for inspiration, or start preparing something in Figma.
 
