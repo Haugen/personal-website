@@ -214,10 +214,6 @@ To get started, here is a list of some of the most common and useful properties 
 
 CSS has a number of ways to set distances and sizes, for example `margin` or `font-size`. To get started, the easiest way is to use pixel values (for example `20px`). We'll discover other units than pixels further down the line.
 
-## User agent styles
-
-When first creating and HTML document, adding elements to the `body` tag, and viewing it in the browser, you'll see some default styling. Headers will have larger font sizes, paragraphs will have margins, links will be underline and have a color, etc. These are default CSS applied by the browser itself. It's not uncommon to override, or "reset", these default values (using for example the `*` selector) early in your stylesheet. It's not strictly necessary, but it's good to be aware of that each browser applies some styling by default.
-
 ## Conclusion
 
 CSS applies styling to our HTML. We use _selectors_ to target what we want to apply styling to, and a combination of _properties_ and _property values_ to manage the look of our site. HTML elements can behave in one of two ways, `inline` or as a `block`. Many CSS properties are self explanatory, and can often be found by a Google search. The most common properties are for box layout, colors, text sizes and text style.

@@ -34,6 +34,12 @@ Once you have a piece of HTML selected, all applied CSS for that element will ap
 
 When you hover a CSS property, you'll also see a checkbox appear to the left of it. Using this, you can toggle individual CSS rules on and off.
 
+## User agent styles
+
+When first creating and HTML document, adding elements to the `body` tag, and viewing it in the browser, you'll notice some default styling. Headers will have larger font sizes, paragraphs will have margins, links will be underline and have a color, etc. These are default CSS applied by the browser itself. It's not uncommon to override, or "reset", these default values (using for example the `*` selector) early in your stylesheet. It's not strictly necessary, but it's good to be aware of that each browser applies some styling by default.
+
+When looking over your styling in the browsers Dev Tools, you'll notice some styles coming from "user agent stylesheet". These are styles applied by the browser itself.
+
 ## Conclusion
 
 Browser dev tools is an excellent feature that is extremely helpful for front end development. With the Elements tab selected, you get an insight into the HTML and CSS on any page you visit, and can adjust the code to see changes immediately reflected on the page. I recommend practicing and getting comfortable using these tools, as they will improve your experience designing websites.

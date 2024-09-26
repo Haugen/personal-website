@@ -66,7 +66,6 @@ Now that we have some content on the website, let's start styling it.
 
 Once we have a stylesheet connected to our website, let's look at resetting some browser default styles.
 
-1. Use [the alternative box model](css-intro#the-alternative-box-model).
 1. Reset the margin (use `margin: 0`) on the `body` element.
 1. Links are blue and underline by default. Change this to something else. Perhaps just change the color, or apply more styling if you want.
 1. Add a default hover effect on your links.
