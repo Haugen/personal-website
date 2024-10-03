@@ -12,6 +12,12 @@ Changing font is done with the CSS property `font-family`. If not set, the webpa
 
 Often times we don't want to use only these common fonts that most computers have installed. Rather, we want to import a custom font, and use that on our website.
 
+## OpenType font vs. Variable Font
+
+For the longest, font on computers (which also meant, the web) followed the so called OpenType font specification. In recent years, something called Variable fonts have gained support on the web and is growing in popularity. If you really want to nerd out on the topic the [Introduction to variable fonts on the web](https://web.dev/articles/variable-fonts) is great, as well as the [official MDN documentaion](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_fonts/Variable_fonts_guide).
+
+The "Roboto" Google font we'll be working with in the rest of this article is an old school OpenType font.
+
 ### Google Fonts
 
 [Google Fonts](https://fonts.google.com/) house thousands of custom fonts that you can easily embed and use on your website. Through their website you can pick out a font, select the font-weights (normal, light, bold, etc) you want to use, and follow the instructions on the website on how to embed and use the font.
