@@ -131,7 +131,7 @@ styles.css
 
 ### More HTML Files
 
-But what if we want more than just one front page on our website? As described in [the assignment for this course](https://docs.google.com/document/d/1ah0wPtAMyoRKgjOmPRN4DY8WR4ytXYDUGoSUOveCvEE/edit#heading=h.iggbkuwt114n) we want at least two pages. A starting page (our index.html) and a project page. And perhaps you want a third page, and "About" or a "Contact" page or something. Creating new pages are as easy as creating new HTML file and naming them something different. The name of the file, for example `about.html`, will also be the URL for the page. Once you create a new HTML file in VS Code, you can generate some boilerplate code by typing `!` followed by <kbd>Enter</kbd> in your HTML file. Once you've created another file, you can link between then with something like this (make sure your new HTML files are in the same folder as `index.html`):
+But what if we want more than just one front page on our website? Creating new pages are as easy as creating new HTML file and naming them something different. The name of the file, for example `about.html`, will also be the URL for the page. Once you create a new HTML file in VS Code, you can generate some boilerplate code by typing `!` followed by <kbd>Enter</kbd> in your HTML file. Once you've created another file, you can link between then with something like this (make sure your new HTML files are in the same folder as `index.html`):
 
 ```html
 <nav>
