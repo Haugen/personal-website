@@ -1,17 +1,84 @@
 ---
-import SectionHeader from "../components/SectionHeader.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import HomeHeader from "../sections/HomeHeader.astro";
-import ProjectsSection from "../sections/ProjectsSection.astro";
-import TestimonialsSection from "../sections/TestimonialsSection.astro";
+import { Image } from "astro:assets";
+import portrait from "../assets/tobias.jpg";
+import "../styles/global.css";
+
+const services = [
+  "Interna verktyg som ersätter kalkylark",
+  "Webbplatser som är snabba och lätta att uppdatera",
+  "Support och underhåll, löpande eller vid behov",
+];
+
+// Placeholder until real SVG logos are in place
+const clients = ["Google", "Huge", "Lunds universitet", "IKEA"];
+
+const email = "hej@exempel.se";
 ---
 
-<BaseLayout title="Home of software engineer Tobias Haugen">
-  <HomeHeader />
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Tobias Haugen · Product engineer i Varberg</title>
+    <meta
+      name="description"
+      content="Product engineer i Varberg. Webb, interna verktyg och teknisk support för bolag i Halland."
+    />
+  </head>
+  <body class="bg-white font-serif text-ink antialiased">
+    <article class="mx-auto grid max-w-[620px] gap-[22px] px-5 pt-16 pb-20 sm:pt-24">
+      <p class="font-sans text-[13px] font-semibold text-accent">Product engineer i Varberg</p>
 
-  <SectionHeader>Notable projects</SectionHeader>
-  <ProjectsSection />
+      <h1 class="font-sans text-[clamp(30px,6vw,40px)] leading-[1.1] font-bold tracking-[-0.035em] text-balance">
+        Webb, verktyg och teknik. Från idé till drift.
+      </h1>
 
-  <SectionHeader>Testimonials</SectionHeader>
-  <TestimonialsSection />
-</BaseLayout>
+      <p class="font-sans text-xl leading-[1.45] tracking-[-0.01em] text-muted">
+        Jag hjälper bolag att effektivisera och modernisera, en avgränsad lösning i taget.
+      </p>
+
+      <div class="flex items-center gap-3 font-sans text-[13px] leading-snug text-muted">
+        <Image src={portrait} alt="Tobias Haugen" width={80} height={80} class="size-10 rounded-full object-cover" />
+        <div>
+          <span class="block font-semibold text-ink">Tobias Haugen</span>
+          15 år i webben · Uppdaterad nov 2026
+        </div>
+      </div>
+
+      <div class="grid gap-5 border-t border-rule pt-[26px] text-[19.5px] leading-[1.62]">
+        <p>
+          Det är sällan tekniken som är svårast. Det svåra är att förstå vad som faktiskt behövs. Där
+          börjar jag.
+        </p>
+
+        <h2 class="-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em]">Det här gör jag</h2>
+        <ul class="grid list-disc gap-1.5 pl-[1.1em] marker:text-accent">
+          {services.map((service) => <li>{service}</li>)}
+        </ul>
+
+        <figure class="mt-2 grid gap-3">
+          <ul class="grid grid-cols-2 overflow-hidden rounded-[10px] border border-rule sm:grid-cols-4">
+            {
+              clients.map((client) => (
+                <li class="grid place-items-center border-rule px-2 py-[26px] text-center font-sans text-[17px] font-semibold tracking-[-0.02em] text-[#8a8a8a] not-last:border-r max-sm:nth-[-n+2]:border-b max-sm:even:border-r-0">
+                  {client}
+                </li>
+              ))
+            }
+          </ul>
+          <figcaption class="text-center font-sans text-[13px] text-[#888]">
+            Arbetsgivare och kunder genom åren
+          </figcaption>
+        </figure>
+
+        <aside
+          class="flex flex-wrap items-center justify-between gap-3 rounded-[10px] border border-mist-edge bg-mist px-6 py-[22px] font-sans text-[15px]"
+        >
+          <strong class="text-base font-semibold">Har ni något som borde vara enklare?</strong>
+          <span class="font-medium text-accent select-all">{email}</span>
+        </aside>
+      </div>
+    </article>
+  </body>
+</html>

@@ -1,5 +1,9 @@
-# Tobias Haugen
+# tobiashaugen
 
-Home of web developer Tobias Haugen.
+Personlig webbplats. Astro + Tailwind, en enda sida.
 
-Website written in [AstroJS](https://astro.build/).
+```sh
+pnpm install
+pnpm dev      # localhost:4321
+pnpm build    # bygger till dist/
+```
