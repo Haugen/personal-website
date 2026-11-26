@@ -13,6 +13,8 @@ const services = [
 const clients = ["Google", "Huge", "Lunds universitet", "IKEA"];
 
 const email = "hej@exempel.se";
+const linkedin = "https://www.linkedin.com/in/"; // TODO: add profile slug
+const github = "https://github.com/Haugen";
 ---
 
 <html lang="sv">
@@ -20,39 +22,47 @@ const email = "hej@exempel.se";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Tobias Haugen · Product engineer i Varberg</title>
+    <title>Tobias Haugen · Product Engineer i Varberg</title>
     <meta
       name="description"
-      content="Product engineer i Varberg. Webb, interna verktyg och teknisk support för bolag i Halland."
+      content="Jag bygger och förvaltar webbplatser och interna system för bolag i Varberg och Halland."
     />
   </head>
   <body class="bg-white font-serif text-ink antialiased">
-    <article class="mx-auto grid max-w-[620px] gap-[22px] px-5 pt-16 pb-20 sm:pt-24">
-      <p class="font-sans text-[13px] font-semibold text-accent">Product engineer i Varberg</p>
+    <article class="mx-auto grid max-w-[620px] gap-[22px] px-5 pt-16 pb-20 sm:max-w-[740px] sm:gap-7 sm:pt-28 sm:pb-28">
+      <p class="font-sans text-[13px] font-semibold text-accent sm:text-[15px]">Product Engineer i Varberg</p>
 
-      <h1 class="font-sans text-[clamp(30px,6vw,40px)] leading-[1.1] font-bold tracking-[-0.035em] text-balance">
-        Webb, verktyg och teknik. Från idé till drift.
+      <h1 class="font-sans text-[32px] leading-[1.08] font-bold tracking-[-0.035em] text-balance sm:text-[48px] lg:text-[54px]">
+        Digitala verktyg som sparar tid i vardagen.
       </h1>
 
-      <p class="font-sans text-xl leading-[1.45] tracking-[-0.01em] text-muted">
-        Jag hjälper bolag att effektivisera och modernisera, en avgränsad lösning i taget.
+      <p class="font-sans text-xl leading-[1.45] tracking-[-0.01em] text-muted sm:text-[24px]">
+        Jag bygger och förvaltar webbplatser och interna system för bolag i Varberg och Halland. Femton års
+        erfarenhet och en kontaktperson, från första idé till drift.
       </p>
 
-      <div class="flex items-center gap-3 font-sans text-[13px] leading-snug text-muted">
-        <Image src={portrait} alt="Tobias Haugen" width={80} height={80} class="size-10 rounded-full object-cover" />
-        <div>
-          <span class="block font-semibold text-ink">Tobias Haugen</span>
-          15 år i webben · Uppdaterad nov 2026
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-4 border-y border-rule py-4 font-sans text-[13px] leading-snug text-muted sm:text-[15px]">
+        <div class="flex items-center gap-4">
+          <Image src={portrait} alt="Tobias Haugen" width={128} height={128} class="size-16 rounded-full object-cover" />
+          <div>
+            <span class="block text-[15px] font-semibold text-ink sm:text-base">Tobias Haugen</span>
+            15 år i webben · Uppdaterad nov 2026
+          </div>
+        </div>
+        <div class="flex items-center gap-5 sm:ml-auto">
+          <a href={linkedin} class="underline decoration-rule underline-offset-4 hover:text-ink hover:decoration-ink">LinkedIn</a>
+          <a href={github} class="underline decoration-rule underline-offset-4 hover:text-ink hover:decoration-ink">GitHub</a>
+          <a href={`mailto:${email}`} class="rounded-full bg-ink px-4 py-2 font-medium text-white hover:bg-accent">Kontakta mig</a>
         </div>
       </div>
 
-      <div class="grid gap-5 border-t border-rule pt-[26px] text-[19.5px] leading-[1.62]">
+      <div class="grid gap-5 text-[19.5px] leading-[1.62] sm:gap-6 sm:text-[21px]">
         <p>
           Det är sällan tekniken som är svårast. Det svåra är att förstå vad som faktiskt behövs. Där
           börjar jag.
         </p>
 
-        <h2 class="-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em]">Det här gör jag</h2>
+        <h2 class="-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm:text-[23px]">Det här gör jag</h2>
         <ul class="grid list-disc gap-1.5 pl-[1.1em] marker:text-accent">
           {services.map((service) => <li>{service}</li>)}
         </ul>
@@ -61,21 +71,21 @@ const email = "hej@exempel.se";
           <ul class="grid grid-cols-2 overflow-hidden rounded-[10px] border border-rule sm:grid-cols-4">
             {
               clients.map((client) => (
-                <li class="grid place-items-center border-rule px-2 py-[26px] text-center font-sans text-[17px] font-semibold tracking-[-0.02em] text-[#8a8a8a] not-last:border-r max-sm:nth-[-n+2]:border-b max-sm:even:border-r-0">
+                <li class="grid place-items-center border-rule px-2 py-[26px] text-center font-sans text-[17px] font-semibold tracking-[-0.02em] text-[#8a8a8a] not-last:border-r max-sm:nth-[-n+2]:border-b max-sm:even:border-r-0 sm:py-8 sm:text-[19px]">
                   {client}
                 </li>
               ))
             }
           </ul>
-          <figcaption class="text-center font-sans text-[13px] text-[#888]">
+          <figcaption class="text-center font-sans text-[13px] text-[#888] sm:text-sm">
             Arbetsgivare och kunder genom åren
           </figcaption>
         </figure>
 
         <aside
-          class="flex flex-wrap items-center justify-between gap-3 rounded-[10px] border border-mist-edge bg-mist px-6 py-[22px] font-sans text-[15px]"
+          class="flex flex-wrap items-center justify-between gap-3 rounded-[10px] border border-mist-edge bg-mist px-6 py-[22px] font-sans text-[15px] sm:px-8 sm:py-7 sm:text-[17px]"
         >
-          <strong class="text-base font-semibold">Har ni något som borde vara enklare?</strong>
+          <strong class="text-base font-semibold sm:text-lg">Har ni något som borde vara enklare?</strong>
           <span class="font-medium text-accent select-all">{email}</span>
         </aside>
       </div>
