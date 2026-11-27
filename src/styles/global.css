@@ -9,7 +9,33 @@
   --color-ink: #1f1f1f;
   --color-muted: #6d6d6d;
   --color-rule: #ebebeb;
-  --color-accent: #2f4f73;
-  --color-mist: #f5f7fa;
-  --color-mist-edge: #e3e9f0;
+}
+
+/* Portrait easter egg: springs up on hover (mouse) or press-and-hold (touch).
+   Grows inward from the left on narrow screens, and from the centre (out past the column) on wide ones. */
+.portrait {
+  transform-origin: left center;
+  transition:
+    scale 500ms cubic-bezier(0.34, 1.35, 0.64, 1),
+    box-shadow 300ms ease;
+}
+@media (min-width: 64rem) {
+  .portrait {
+    transform-origin: center;
+  }
+}
+@media (hover: hover) {
+  .portrait:hover {
+    scale: 2.75;
+    box-shadow: 0 0 0 2px #fff, 0 16px 36px -12px rgb(0 0 0 / 0.35);
+  }
+}
+.portrait[data-zoom] {
+  scale: 2.75;
+  box-shadow: 0 0 0 2px #fff, 0 16px 36px -12px rgb(0 0 0 / 0.35);
+}
+@media (prefers-reduced-motion: reduce) {
+  .portrait {
+    transition: none;
+  }
 }
