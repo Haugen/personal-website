@@ -97,12 +97,14 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
 
       <div class="flex items-center justify-between gap-4 border-y border-rule py-4 font-sans text-[13px] leading-snug text-muted sm:text-[15px]">
         <div class="flex items-center gap-4">
-          {/* Easter egg: grows on hover (mouse) or press-and-hold (touch) */}
+          {/* Easter egg: grows on hover (mouse) or press-and-hold (touch).
+              priority: above the fold, so load and decode it with the page (eager, sync, high) instead of a frame later. */}
           <Image
             src={portrait}
             alt="Tobias Haugen"
             width={384}
             height={384}
+            priority
             draggable="false"
             data-portrait
             class="portrait relative z-10 size-16 touch-none rounded-full object-cover select-none [-webkit-touch-callout:none]"
