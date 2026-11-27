@@ -179,9 +179,20 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
           </figcaption>
         </figure>
 
-        <hr class="mt-6 border-rule sm:mt-8" />
-        <section id="kontakt" class="-mx-4 -mt-2 grid scroll-mt-10 gap-4 rounded-2xl px-4 py-6 sm:-mx-8 sm:px-8 sm:py-8">
-          <h2 class="font-sans text-[26px] leading-tight font-bold tracking-[-0.03em] sm:text-[34px]">Ska vi höras?</h2>
+        <section id="kontakt" class="relative -mx-4 mt-4 grid scroll-mt-10 gap-4 rounded-2xl px-4 py-6 sm:-mx-8 sm:mt-6 sm:px-8 sm:py-8">
+          <svg class="contact-frame" aria-hidden="true">
+            <rect pathLength="1" />
+          </svg>
+          <h2 class="font-sans text-[26px] leading-tight font-bold tracking-[-0.03em] sm:text-[34px]">
+            Ska vi{" "}
+            <span class="relative inline-block">
+              höras
+              <svg class="contact-underline" viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true">
+                <path pathLength="1" d="M3 11C40 6 90 4 130 6s52 4 66 2" />
+              </svg>
+            </span>
+            ?
+          </h2>
           <p>
             Har ni något som borde vara enklare? Skicka ett mejl och berätta kort vad det gäller, så hör jag av mig.
             Sedan tar vi det därifrån, med ett samtal, ett videomöte eller ett besök hos er.
@@ -239,17 +250,22 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
         });
       }
 
-      // Mark the contact section once "Kontakta mig" has scrolled to it ([data-arrived]); the visual effect is still to be decided.
+      // Arrival effect: once "Kontakta mig" has scrolled to the contact section, a soft frame is drawn around it
+      // and the underline under "höras" is redrawn (see global.css). On click the section gets [data-arriving]
+      // (the effect's start state, so nothing visibly resets at the end of the scroll); when scrolling has ended
+      // it switches to [data-arrived], which plays the animations.
       const contact = document.getElementById("kontakt");
       for (const link of document.querySelectorAll('a[href="#kontakt"]')) {
         link.addEventListener("click", () => {
           if (!contact) return;
           let done = false;
+          contact.removeAttribute("data-arrived");
+          contact.setAttribute("data-arriving", "");
           const markArrived = () => {
             if (done) return;
             done = true;
-            contact.removeAttribute("data-arrived");
-            void contact.offsetWidth; // restart any animation if it is clicked again
+            contact.removeAttribute("data-arriving");
+            void contact.offsetWidth; // restart the animations if it is clicked again
             contact.setAttribute("data-arrived", "");
           };
           if ("onscrollend" in window) addEventListener("scrollend", markArrived, { once: true });
@@ -257,9 +273,6 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
           setTimeout(markArrived, "onscrollend" in window ? 1500 : 700);
         });
       }
-      contact?.addEventListener("animationend", (event) => {
-        if (event.target === contact) contact.removeAttribute("data-arrived");
-      });
 
       // Portrait easter egg on touch devices: grow while pressed (hover handles mouse).
       const portrait = document.querySelector<HTMLElement>("[data-portrait]");
