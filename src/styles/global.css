@@ -2,9 +2,28 @@
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/newsreader";
 
+/* Local fallbacks resized to the web fonts' metrics, so text doesn't jump if it's drawn before the fonts are ready.
+   Values from the latin files via Capsize (as Astro's Fonts API computes them); recompute if the fonts change. */
+@font-face {
+  font-family: "Geist Fallback";
+  src: local("Arial");
+  size-adjust: 104.7553%;
+  ascent-override: 95.9379%;
+  descent-override: 28.1609%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Newsreader Fallback";
+  src: local("Times New Roman");
+  size-adjust: 105.4769%;
+  ascent-override: 69.6835%;
+  descent-override: 25.124%;
+  line-gap-override: 0%;
+}
+
 @theme {
-  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Newsreader Variable", Georgia, serif;
+  --font-sans: "Geist Variable", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader Variable", "Newsreader Fallback", Georgia, serif;
 
   --color-ink: #1f1f1f;
   --color-muted: #6d6d6d;
