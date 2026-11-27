@@ -68,7 +68,7 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
     />
   </head>
   <body class="bg-white font-serif text-ink antialiased">
-    <article class="mx-auto grid max-w-[620px] gap-[22px] px-5 pt-16 pb-20 sm:max-w-[740px] sm:gap-7 sm:pt-28 sm:pb-28">
+    <article class="mx-auto grid max-w-[620px] overflow-y-clip gap-[22px] px-5 pt-10 pb-20 sm:max-w-[740px] sm:gap-7 sm:pt-14 sm:pb-28 lg:pt-28">
       <div class="flex items-center justify-between gap-4">
         <p class="font-sans text-[13px] font-semibold text-ink sm:text-[15px]">Teknisk partner i Varberg</p>
         <nav class="-mr-1.5 flex items-center" aria-label="Sociala medier">
@@ -179,10 +179,7 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
           </figcaption>
         </figure>
 
-        <section id="kontakt" class="relative -mx-4 mt-4 grid scroll-mt-10 gap-4 rounded-2xl px-4 py-6 sm:-mx-8 sm:mt-6 sm:px-8 sm:py-8">
-          <svg class="contact-frame" aria-hidden="true">
-            <rect pathLength="1" />
-          </svg>
+        <section id="kontakt" class="mt-4 grid scroll-mt-10 gap-4 pt-6 sm:mt-6 sm:pt-8">
           <h2 class="font-sans text-[26px] leading-tight font-bold tracking-[-0.03em] sm:text-[34px]">
             Ska vi{" "}
             <span class="relative inline-block">
@@ -197,7 +194,7 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
             Har ni något som borde vara enklare? Skicka ett mejl och berätta kort vad det gäller, så hör jag av mig.
             Sedan tar vi det därifrån, med ett samtal, ett videomöte eller ett besök hos er.
           </p>
-          <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-3 font-sans text-[15px] sm:text-base">
+          <div class="mt-2 flex flex-col items-start gap-3 font-sans text-[15px] sm:flex-row sm:items-center sm:gap-5 sm:text-base">
             <button
               type="button"
               data-copy-email
@@ -211,28 +208,34 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
               </svg>
               <span data-copy-label>Kopiera min mejladress</span>
             </button>
-            <p data-copy-status aria-live="polite" class="text-muted"></p>
+            {/* Space is reserved up front (below the button on mobile, beside it from sm) so nothing jumps */}
+            <p data-copy-status aria-live="polite" class="min-h-[1.5em] leading-normal text-muted"></p>
           </div>
         </section>
       </div>
 
-      <footer class="mt-6 border-t border-rule pt-6 font-sans text-[13px] leading-relaxed text-[#8a8a8a] sm:mt-8 sm:text-sm">
+      <footer class="mt-2 border-t border-rule pt-6 font-sans text-[13px] leading-relaxed text-[#8a8a8a] sm:mt-2 sm:text-sm">
         Tobias Haugen driver White Fluffy Clouds AB<br />
         Org.nr 559407-6126 · Godkänd för F-skatt
       </footer>
     </article>
 
     <script>
+      // Copy button: copies the address and confirms it next to/below the button. After a moment the
+      // confirmation hops up slightly and drops out of the bottom of the screen (see dropOut).
+      const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+      const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
       for (const button of document.querySelectorAll<HTMLButtonElement>("[data-copy-email]")) {
         // Assembled from data attributes at runtime so the full address never sits in the HTML for scrapers
         // (a plain string join gets constant-folded by the minifier).
         const email = `${button.dataset.user}@${button.dataset.domain}`;
-        const label = button.querySelector("[data-copy-label]")!;
         const status = button.parentElement!.querySelector("[data-copy-status]")!;
-        const original = label.textContent;
-        let timer: number | undefined;
+        let run = 0; // bumped on every click, so an older sequence stops when a new one starts
 
         button.addEventListener("click", async () => {
+          const id = ++run;
+
           let copied = false;
           try {
             await navigator.clipboard.writeText(email);
@@ -240,18 +243,52 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
           } catch {}
 
           status.innerHTML = copied
-            ? `<span class="font-medium text-ink select-all">${email}</span> ligger nu i ditt urklipp.`
-            : `Mejla mig på <span class="font-medium text-ink select-all">${email}</span>`;
-          if (!copied) return;
+            ? `<span class="copy-status-text"><span class="font-medium text-ink">${email}</span> är kopierad.</span>`
+            : `<span class="copy-status-text">Mejla mig på <span class="font-medium text-ink select-all">${email}</span></span>`;
+          if (!copied) return; // keep the address on screen so it can be copied by hand
 
-          label.textContent = "Kopierad!";
-          clearTimeout(timer);
-          timer = window.setTimeout(() => (label.textContent = original), 2500);
+          await sleep(2500);
+          const text = status.querySelector<HTMLElement>(".copy-status-text");
+          if (id !== run || !text) return;
+          if (!reducedMotion.matches) await dropOut(text).finished;
+          if (id === run) status.textContent = "";
         });
       }
 
-      // Arrival effect: once "Kontakta mig" has scrolled to the contact section, a soft frame is drawn around it
-      // and the underline under "höras" is redrawn (see global.css). On click the section gets [data-arriving]
+      // A small, smooth hop, then free fall under constant gravity until the text has left the bottom of the
+      // screen. Sampled into keyframes so the motion is real physics rather than a bezier approximation.
+      // It only starts fading once it is well on its way, so it is still visible as it exits.
+      function dropOut(el: HTMLElement) {
+        const gravity = 3400; // px/s²
+        const hop = 5; // px
+        const hopMs = 240;
+        const exit = Math.max(innerHeight - el.getBoundingClientRect().top, 80); // until its top passes the bottom edge
+        const fallMs = Math.sqrt((2 * (exit + hop)) / gravity) * 1000;
+        const total = hopMs + fallMs;
+        const steps = 40;
+        const frames: Keyframe[] = [];
+        for (let i = 0; i <= steps; i++) {
+          const t = (i / steps) * total;
+          let y: number;
+          let rotate: number;
+          if (t <= hopMs) {
+            const eased = Math.sin(((t / hopMs) * Math.PI) / 2); // decelerates to a standstill at the top
+            y = -hop * eased;
+            rotate = -0.3 * eased;
+          } else {
+            const s = (t - hopMs) / 1000;
+            y = -hop + 0.5 * gravity * s * s;
+            rotate = -0.3 + 2.3 * ((t - hopMs) / fallMs);
+          }
+          const progress = Math.max(0, y) / exit;
+          const opacity = progress < 0.5 ? 1 : 1 - ((progress - 0.5) / 0.5) * 0.8; // ~0.2 as it leaves
+          frames.push({ offset: t / total, translate: `0 ${y}px`, rotate: `${rotate}deg`, opacity });
+        }
+        return el.animate(frames, { duration: total, easing: "linear", fill: "forwards" });
+      }
+
+      // Arrival effect: once "Kontakta mig" has scrolled to the contact section, the underline under "höras"
+      // is redrawn (see global.css). On click the section gets [data-arriving]
       // (the effect's start state, so nothing visibly resets at the end of the scroll); when scrolling has ended
       // it switches to [data-arrived], which plays the animations.
       const contact = document.getElementById("kontakt");

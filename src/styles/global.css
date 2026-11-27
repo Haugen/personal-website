@@ -40,9 +40,8 @@
   }
 }
 
-/* Contact section arrival effect (after "Kontakta mig" has scrolled there): a soft grey frame is drawn
-   around the section and fades away, and the hand-drawn underline under "höras" is redrawn.
-   #kontakt[data-arriving] = start state while scrolling, #kontakt[data-arrived] = play. */
+/* Contact section arrival effect (after "Kontakta mig" has scrolled there): the hand-drawn underline under
+   "höras" is redrawn. #kontakt[data-arriving] = start state while scrolling, #kontakt[data-arrived] = play. */
 .contact-underline {
   position: absolute;
   left: -2%;
@@ -65,37 +64,8 @@
   stroke-dashoffset: 1;
 }
 #kontakt[data-arrived] .contact-underline path {
-  animation: contact-draw 700ms 900ms cubic-bezier(0.65, 0, 0.35, 1) both;
+  animation: contact-draw 700ms 100ms cubic-bezier(0.65, 0, 0.35, 1) both;
 }
-
-.contact-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-  opacity: 0;
-}
-.contact-frame rect {
-  x: 0.75px;
-  y: 0.75px;
-  width: calc(100% - 1.5px);
-  height: calc(100% - 1.5px);
-  rx: 16px;
-  fill: none;
-  stroke: #c4c4c4;
-  stroke-width: 1.25;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-}
-#kontakt[data-arrived] .contact-frame {
-  animation: contact-frame-fade 3200ms ease both;
-}
-#kontakt[data-arrived] .contact-frame rect {
-  animation: contact-draw 1300ms cubic-bezier(0.65, 0, 0.35, 1) both;
-}
-
 @keyframes contact-draw {
   from {
     stroke-dashoffset: 1;
@@ -104,23 +74,29 @@
     stroke-dashoffset: 0;
   }
 }
-@keyframes contact-frame-fade {
-  0%,
-  65% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  #kontakt[data-arrived] .contact-frame,
-  #kontakt[data-arrived] .contact-frame rect,
   #kontakt[data-arrived] .contact-underline path {
     animation: none;
   }
   #kontakt[data-arriving] .contact-underline path {
     stroke-dashoffset: 0;
+  }
+}
+
+/* Copy confirmation next to/below the button: eases in. The fall-out is a JS (Web Animations) physics drop. */
+.copy-status-text {
+  display: inline-block;
+  transform-origin: left bottom;
+  animation: copy-status-in 220ms ease-out both;
+}
+@keyframes copy-status-in {
+  from {
+    opacity: 0;
+    translate: 0 4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .copy-status-text {
+    animation: none;
   }
 }
