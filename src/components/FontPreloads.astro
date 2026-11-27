@@ -1,0 +1,10 @@
+---
+// Preloads the latin files of both fonts so the browser fetches them together with the HTML instead of only after
+// global.css is parsed; otherwise a reload paints one frame in the fallback font before swapping.
+// These are the same files global.css pulls in through @fontsource-variable, so Vite emits one hashed asset for both.
+import geist from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
+import newsreader from "@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2?url";
+---
+
+<link rel="preload" href={geist} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={newsreader} as="font" type="font/woff2" crossorigin />
