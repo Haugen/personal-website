@@ -1,94 +1,326 @@
 ---
 import { Image } from "astro:assets";
 import portrait from "../assets/tobias.jpg";
+import googleLogo from "../assets/logos/google.svg";
+import hugeLogo from "../assets/logos/huge.svg";
+import ikeaLogo from "../assets/logos/ikea.svg";
+import lundLogo from "../assets/logos/lund.png";
+import volvoLogo from "../assets/logos/volvo.svg";
+import digitalistLogo from "../assets/logos/digitalist.svg";
+import kvadratLogo from "../assets/logos/kvadrat.svg";
+import toptalLogo from "../assets/logos/toptal.svg";
+import understanditLogo from "../assets/logos/understandit.svg";
+import yrgoLogo from "../assets/logos/yrgo.svg";
 import "../styles/global.css";
 
 const services = [
-  "Interna verktyg som ersätter kalkylark",
-  "Webbplatser som är snabba och lätta att uppdatera",
-  "Support och underhåll, löpande eller vid behov",
+  "Ersätta kalkylark och mejltrådar med enkla verktyg som passar hur ni jobbar",
+  "Koppla ihop systemen ni redan har, så att ingenting skrivs in två gånger",
+  "Bygga en webbplats som laddar snabbt, syns på Google och som ni kan uppdatera själva",
+  "Förvalta och vidareutveckla det ni redan har, som projekt eller löpande",
 ];
 
-// Placeholder until real SVG logos are in place
-const clients = ["Google", "Huge", "Lunds universitet", "IKEA"];
+const steps = [
+  ["Vi hörs", "och ni berättar vad som skaver. Över telefon, video eller på plats hos er. Det kostar ingenting."],
+  ["Jag föreslår ett första litet steg", "till fast pris, något som gör nytta inom veckor och inte månader."],
+  ["Fungerar det bygger vi vidare.", "Gör det inte har ni inte riskerat mycket."],
+];
 
-const email = "hej@exempel.se";
-const linkedin = "https://www.linkedin.com/in/"; // TODO: add profile slug
-const github = "https://github.com/Haugen";
+// Monochrome (black on transparent) logos, sized per logo so they look optically even
+const clients = [
+  { name: "Google", logo: googleLogo, size: "h-[26px] sm:h-[30px]" },
+  { name: "IKEA", logo: ikeaLogo, size: "h-[19px] sm:h-[22px]" },
+  { name: "Volvo Cars", logo: volvoLogo, size: "h-[15px] sm:h-[18px]" },
+  { name: "Lunds universitet", logo: lundLogo, size: "h-[36px] sm:h-[42px]" },
+  { name: "Toptal", logo: toptalLogo, size: "h-[27px] sm:h-[32px]" },
+  { name: "Huge", logo: hugeLogo, size: "h-[26px] sm:h-[30px]" },
+  { name: "Digitalist Sweden", logo: digitalistLogo, size: "h-[25px] sm:h-[29px]" },
+  { name: "Kvadrat", logo: kvadratLogo, size: "h-[20px] sm:h-[24px]" },
+  { name: "UnderstandIt", logo: understanditLogo, size: "h-[42px] sm:h-[48px]" },
+  { name: "Yrgo", logo: yrgoLogo, size: "h-[19px] sm:h-[22px]" },
+];
+
+const socials = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/tobias-haugen/",
+    path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/Haugen",
+    path: "M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12",
+  },
+];
+
+const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm:text-[23px]";
 ---
 
-<html lang="sv">
+<html lang="sv" class="motion-safe:scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Tobias Haugen · Product Engineer i Varberg</title>
+    <title>Tobias Haugen · Utvecklare och teknisk partner i Varberg</title>
     <meta
       name="description"
-      content="Jag bygger och förvaltar webbplatser och interna system för bolag i Varberg och Halland."
+      content="Webbplatser, interna verktyg och digitalisering för små och medelstora bolag i Varberg och Halland. En erfaren, lokal teknisk partner."
     />
   </head>
   <body class="bg-white font-serif text-ink antialiased">
-    <article class="mx-auto grid max-w-[620px] gap-[22px] px-5 pt-16 pb-20 sm:max-w-[740px] sm:gap-7 sm:pt-28 sm:pb-28">
-      <p class="font-sans text-[13px] font-semibold text-accent sm:text-[15px]">Product Engineer i Varberg</p>
+    <article class="mx-auto grid max-w-[620px] overflow-y-clip gap-[22px] px-5 pt-10 pb-20 sm:max-w-[740px] sm:gap-7 sm:pt-14 sm:pb-28 lg:pt-28">
+      <div class="flex items-center justify-between gap-4">
+        <p class="font-sans text-[13px] font-semibold text-ink sm:text-[15px]">Teknisk partner i Varberg</p>
+        <nav class="-mr-1.5 flex items-center" aria-label="Sociala medier">
+          {
+            socials.map((social) => (
+              <a href={social.href} aria-label={social.name} class="rounded-md p-1.5 text-[#9a9a9a] transition-colors hover:text-ink">
+                <svg viewBox="0 0 24 24" class="size-[18px] sm:size-5" fill="currentColor" aria-hidden="true">
+                  <path d={social.path} />
+                </svg>
+              </a>
+            ))
+          }
+        </nav>
+      </div>
 
       <h1 class="font-sans text-[32px] leading-[1.08] font-bold tracking-[-0.035em] text-balance sm:text-[48px] lg:text-[54px]">
-        Digitala verktyg som sparar tid i vardagen.
+        Er egen utvecklare, utan att behöva anställa en.
       </h1>
 
       <p class="font-sans text-xl leading-[1.45] tracking-[-0.01em] text-muted sm:text-[24px]">
-        Jag bygger och förvaltar webbplatser och interna system för bolag i Varberg och Halland. Femton års
-        erfarenhet och en kontaktperson, från första idé till drift.
+        Jag hjälper små och medelstora bolag i Varberg och Halland att bygga webbplatser och interna verktyg som
+        tar bort manuellt arbete. En kontaktperson hela vägen, från idé till drift.
       </p>
 
-      <div class="flex flex-wrap items-center gap-x-6 gap-y-4 border-y border-rule py-4 font-sans text-[13px] leading-snug text-muted sm:text-[15px]">
+      <div class="flex items-center justify-between gap-4 border-y border-rule py-4 font-sans text-[13px] leading-snug text-muted sm:text-[15px]">
         <div class="flex items-center gap-4">
-          <Image src={portrait} alt="Tobias Haugen" width={128} height={128} class="size-16 rounded-full object-cover" />
+          {/* Easter egg: grows on hover (mouse) or press-and-hold (touch) */}
+          <Image
+            src={portrait}
+            alt="Tobias Haugen"
+            width={384}
+            height={384}
+            draggable="false"
+            data-portrait
+            class="portrait relative z-10 size-16 touch-none rounded-full object-cover select-none [-webkit-touch-callout:none]"
+          />
           <div>
             <span class="block text-[15px] font-semibold text-ink sm:text-base">Tobias Haugen</span>
-            15 år i webben · Uppdaterad nov 2026
+            15 år i webben
           </div>
         </div>
-        <div class="flex items-center gap-5 sm:ml-auto">
-          <a href={linkedin} class="underline decoration-rule underline-offset-4 hover:text-ink hover:decoration-ink">LinkedIn</a>
-          <a href={github} class="underline decoration-rule underline-offset-4 hover:text-ink hover:decoration-ink">GitHub</a>
-          <a href={`mailto:${email}`} class="rounded-full bg-ink px-4 py-2 font-medium text-white hover:bg-accent">Kontakta mig</a>
-        </div>
+        <a href="#kontakt" class="shrink-0 rounded-full bg-ink px-4 py-2 font-medium text-white hover:bg-ink/85">Kontakta mig</a>
       </div>
 
       <div class="grid gap-5 text-[19.5px] leading-[1.62] sm:gap-6 sm:text-[21px]">
         <p>
-          Det är sällan tekniken som är svårast. Det svåra är att förstå vad som faktiskt behövs. Där
-          börjar jag.
+          I de flesta bolag finns det någon som lägger timmar varje vecka på att flytta uppgifter mellan system.
+          Ett kalkylark som bara en person förstår. En offert som skrivs från början varje gång. En webbplats som
+          ingen riktigt vågar röra.
         </p>
 
-        <h2 class="-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm:text-[23px]">Det här gör jag</h2>
-        <ul class="grid list-disc gap-1.5 pl-[1.1em] marker:text-accent">
+        <p>
+          Det är sällan tekniken som är svårast. Det svåra är att förstå vad som faktiskt behövs, och vad som inte
+          behövs. Där börjar jag.
+        </p>
+
+        <h2 class={h2}>Vem är jag?</h2>
+        <p>
+          Kort sagt en utvecklare som tänker som en verksamhetsägare. Jag bygger inte bara det som står på en
+          kravlista. Jag sätter mig in i hur ni jobbar, föreslår det som ger mest effekt, bygger det och ser till
+          att det fungerar efteråt. Det som annars kräver en byrå med projektledare, designer och utvecklare får ni
+          av en person.
+        </p>
+
+        <h2 class={h2}>Det här kan vi göra</h2>
+        <ul class="grid list-disc gap-1.5 pl-[1.1em] marker:text-ink">
           {services.map((service) => <li>{service}</li>)}
         </ul>
 
+        <h2 class={h2}>Så brukar det gå till</h2>
+        <ol class="grid list-decimal gap-1.5 pl-[1.3em] marker:font-sans marker:font-semibold marker:text-ink">
+          {
+            steps.map(([lead, rest]) => (
+              <li>
+                <strong class="font-semibold">{lead}</strong> {rest}
+              </li>
+            ))
+          }
+        </ol>
+        <p>
+          Jag tar bara ett fåtal uppdrag åt gången. Då hinner jag sätta mig in ordentligt i varje verksamhet, och
+          ni vet alltid vem ni pratar med.
+        </p>
+
+        <h2 class={h2}>Bakgrund</h2>
+        <p>
+          Jag har jobbat med webb och mjukvara i över femton år. Bland annat har jag lett utvecklingen i projekt
+          för Google och arbetat med svenska organisationer som IKEA, Lunds universitet och Volvo Cars.
+        </p>
+        <p>
+          Sedan augusti 2026 bor jag i Varberg, och det är här jag vill använda den erfarenheten. Det blir bäst när
+          man kan ses, lära känna varandra och bygga vidare tillsammans över tid. Därför vill jag jobba med bolag
+          jag kan träffa, i en stad jag själv bor i, och bidra till deras framgång.
+        </p>
+
         <figure class="mt-2 grid gap-3">
-          <ul class="grid grid-cols-2 overflow-hidden rounded-[10px] border border-rule sm:grid-cols-4">
+          <ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 rounded-[10px] border border-rule px-6 py-8 sm:gap-x-14 sm:px-10 sm:py-10">
             {
               clients.map((client) => (
-                <li class="grid place-items-center border-rule px-2 py-[26px] text-center font-sans text-[17px] font-semibold tracking-[-0.02em] text-[#8a8a8a] not-last:border-r max-sm:nth-[-n+2]:border-b max-sm:even:border-r-0 sm:py-8 sm:text-[19px]">
-                  {client}
+                <li>
+                  <Image src={client.logo} alt={client.name} height={84} class={`${client.size} w-auto opacity-45`} />
                 </li>
               ))
             }
           </ul>
           <figcaption class="text-center font-sans text-[13px] text-[#888] sm:text-sm">
-            Arbetsgivare och kunder genom åren
+            Ett urval av bolag och organisationer jag har arbetat med
           </figcaption>
         </figure>
 
-        <aside
-          class="flex flex-wrap items-center justify-between gap-3 rounded-[10px] border border-mist-edge bg-mist px-6 py-[22px] font-sans text-[15px] sm:px-8 sm:py-7 sm:text-[17px]"
-        >
-          <strong class="text-base font-semibold sm:text-lg">Har ni något som borde vara enklare?</strong>
-          <span class="font-medium text-accent select-all">{email}</span>
-        </aside>
+        <section id="kontakt" class="mt-4 grid scroll-mt-10 gap-4 pt-6 sm:mt-6 sm:pt-8">
+          <h2 class="font-sans text-[26px] leading-tight font-bold tracking-[-0.03em] sm:text-[34px]">
+            Ska vi{" "}
+            <span class="relative inline-block">
+              höras
+              <svg class="contact-underline" viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true">
+                <path pathLength="1" d="M3 11C40 6 90 4 130 6s52 4 66 2" />
+              </svg>
+            </span>
+            ?
+          </h2>
+          <p>
+            Har ni något som borde vara enklare? Skicka ett mejl och berätta kort vad det gäller, så hör jag av mig.
+            Sedan tar vi det därifrån, med ett samtal, ett videomöte eller ett besök hos er.
+          </p>
+          <div class="mt-2 flex flex-col items-start gap-3 font-sans text-[15px] sm:flex-row sm:items-center sm:gap-5 sm:text-base">
+            <button
+              type="button"
+              data-copy-email
+              data-user="tobiashaugen"
+              data-domain="gmail.com"
+              class="inline-flex cursor-pointer items-center gap-2.5 rounded-full bg-ink px-5 py-3 font-medium text-white transition-colors hover:bg-ink/85"
+            >
+              <svg viewBox="0 0 24 24" class="size-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="8" width="13" height="13" rx="2.5" />
+                <path d="M16 8V5.5A2.5 2.5 0 0 0 13.5 3h-8A2.5 2.5 0 0 0 3 5.5v8A2.5 2.5 0 0 0 5.5 16H8" />
+              </svg>
+              <span data-copy-label>Kopiera min mejladress</span>
+            </button>
+            {/* Space is reserved up front (below the button on mobile, beside it from sm) so nothing jumps */}
+            <p data-copy-status aria-live="polite" class="min-h-[1.5em] leading-normal text-muted"></p>
+          </div>
+        </section>
       </div>
+
+      <footer class="mt-2 border-t border-rule pt-6 font-sans text-[13px] leading-relaxed text-[#8a8a8a] sm:mt-2 sm:text-sm">
+        Tobias Haugen driver White Fluffy Clouds AB<br />
+        Org.nr 559407-6126 · Godkänd för F-skatt
+      </footer>
     </article>
+
+    <script>
+      // Copy button: copies the address and confirms it next to/below the button. After a moment the
+      // confirmation hops up slightly and drops out of the bottom of the screen (see dropOut).
+      const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+      const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+      for (const button of document.querySelectorAll<HTMLButtonElement>("[data-copy-email]")) {
+        // Assembled from data attributes at runtime so the full address never sits in the HTML for scrapers
+        // (a plain string join gets constant-folded by the minifier).
+        const email = `${button.dataset.user}@${button.dataset.domain}`;
+        const status = button.parentElement!.querySelector("[data-copy-status]")!;
+        let run = 0; // bumped on every click, so an older sequence stops when a new one starts
+
+        button.addEventListener("click", async () => {
+          const id = ++run;
+
+          let copied = false;
+          try {
+            await navigator.clipboard.writeText(email);
+            copied = true;
+          } catch {}
+
+          status.innerHTML = copied
+            ? `<span class="copy-status-text"><span class="font-medium text-ink">${email}</span> är kopierad.</span>`
+            : `<span class="copy-status-text">Mejla mig på <span class="font-medium text-ink select-all">${email}</span></span>`;
+          if (!copied) return; // keep the address on screen so it can be copied by hand
+
+          await sleep(2500);
+          const text = status.querySelector<HTMLElement>(".copy-status-text");
+          if (id !== run || !text) return;
+          if (!reducedMotion.matches) await dropOut(text).finished;
+          if (id === run) status.textContent = "";
+        });
+      }
+
+      // A small, smooth hop, then free fall under constant gravity until the text has left the bottom of the
+      // screen. Sampled into keyframes so the motion is real physics rather than a bezier approximation.
+      // It only starts fading once it is well on its way, so it is still visible as it exits.
+      function dropOut(el: HTMLElement) {
+        const gravity = 3400; // px/s²
+        const hop = 5; // px
+        const hopMs = 240;
+        const exit = Math.max(innerHeight - el.getBoundingClientRect().top, 80); // until its top passes the bottom edge
+        const fallMs = Math.sqrt((2 * (exit + hop)) / gravity) * 1000;
+        const total = hopMs + fallMs;
+        const steps = 40;
+        const frames: Keyframe[] = [];
+        for (let i = 0; i <= steps; i++) {
+          const t = (i / steps) * total;
+          let y: number;
+          let rotate: number;
+          if (t <= hopMs) {
+            const eased = Math.sin(((t / hopMs) * Math.PI) / 2); // decelerates to a standstill at the top
+            y = -hop * eased;
+            rotate = -0.3 * eased;
+          } else {
+            const s = (t - hopMs) / 1000;
+            y = -hop + 0.5 * gravity * s * s;
+            rotate = -0.3 + 2.3 * ((t - hopMs) / fallMs);
+          }
+          const progress = Math.max(0, y) / exit;
+          const opacity = progress < 0.5 ? 1 : 1 - ((progress - 0.5) / 0.5) * 0.8; // ~0.2 as it leaves
+          frames.push({ offset: t / total, translate: `0 ${y}px`, rotate: `${rotate}deg`, opacity });
+        }
+        return el.animate(frames, { duration: total, easing: "linear", fill: "forwards" });
+      }
+
+      // Arrival effect: once "Kontakta mig" has scrolled to the contact section, the underline under "höras"
+      // is redrawn (see global.css). On click the section gets [data-arriving]
+      // (the effect's start state, so nothing visibly resets at the end of the scroll); when scrolling has ended
+      // it switches to [data-arrived], which plays the animations.
+      const contact = document.getElementById("kontakt");
+      for (const link of document.querySelectorAll('a[href="#kontakt"]')) {
+        link.addEventListener("click", () => {
+          if (!contact) return;
+          let done = false;
+          contact.removeAttribute("data-arrived");
+          contact.setAttribute("data-arriving", "");
+          const markArrived = () => {
+            if (done) return;
+            done = true;
+            contact.removeAttribute("data-arriving");
+            void contact.offsetWidth; // restart the animations if it is clicked again
+            contact.setAttribute("data-arrived", "");
+          };
+          if ("onscrollend" in window) addEventListener("scrollend", markArrived, { once: true });
+          // Fallback for browsers without scrollend, or when the page is already at the bottom and nothing scrolls.
+          setTimeout(markArrived, "onscrollend" in window ? 1500 : 700);
+        });
+      }
+
+      // Portrait easter egg on touch devices: grow while pressed (hover handles mouse).
+      const portrait = document.querySelector<HTMLElement>("[data-portrait]");
+      if (portrait) {
+        const release = () => delete portrait.dataset.zoom;
+        portrait.addEventListener("pointerdown", (event) => {
+          if (event.pointerType !== "mouse") portrait.dataset.zoom = "";
+        });
+        for (const type of ["pointerup", "pointercancel", "pointerleave"]) portrait.addEventListener(type, release);
+        portrait.addEventListener("contextmenu", (event) => event.preventDefault());
+      }
+    </script>
   </body>
 </html>

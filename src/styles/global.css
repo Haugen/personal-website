@@ -9,7 +9,94 @@
   --color-ink: #1f1f1f;
   --color-muted: #6d6d6d;
   --color-rule: #ebebeb;
-  --color-accent: #2f4f73;
-  --color-mist: #f5f7fa;
-  --color-mist-edge: #e3e9f0;
+}
+
+/* Portrait easter egg: springs up on hover (mouse) or press-and-hold (touch).
+   Grows inward from the left on narrow screens, and from the centre (out past the column) on wide ones. */
+.portrait {
+  transform-origin: left center;
+  transition:
+    scale 500ms cubic-bezier(0.34, 1.35, 0.64, 1),
+    box-shadow 300ms ease;
+}
+@media (min-width: 64rem) {
+  .portrait {
+    transform-origin: center;
+  }
+}
+@media (hover: hover) {
+  .portrait:hover {
+    scale: 2.75;
+    box-shadow: 0 0 0 2px #fff, 0 16px 36px -12px rgb(0 0 0 / 0.35);
+  }
+}
+.portrait[data-zoom] {
+  scale: 2.75;
+  box-shadow: 0 0 0 2px #fff, 0 16px 36px -12px rgb(0 0 0 / 0.35);
+}
+@media (prefers-reduced-motion: reduce) {
+  .portrait {
+    transition: none;
+  }
+}
+
+/* Contact section arrival effect (after "Kontakta mig" has scrolled there): the hand-drawn underline under
+   "höras" is redrawn. #kontakt[data-arriving] = start state while scrolling, #kontakt[data-arrived] = play. */
+.contact-underline {
+  position: absolute;
+  left: -2%;
+  bottom: -0.2em;
+  width: 104%;
+  height: 0.32em;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+.contact-underline path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  vector-effect: non-scaling-stroke;
+}
+#kontakt[data-arriving] .contact-underline path {
+  stroke-dashoffset: 1;
+}
+#kontakt[data-arrived] .contact-underline path {
+  animation: contact-draw 700ms 100ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+@keyframes contact-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #kontakt[data-arrived] .contact-underline path {
+    animation: none;
+  }
+  #kontakt[data-arriving] .contact-underline path {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Copy confirmation next to/below the button: eases in. The fall-out is a JS (Web Animations) physics drop. */
+.copy-status-text {
+  display: inline-block;
+  transform-origin: left bottom;
+  animation: copy-status-in 220ms ease-out both;
+}
+@keyframes copy-status-in {
+  from {
+    opacity: 0;
+    translate: 0 4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .copy-status-text {
+    animation: none;
+  }
 }
