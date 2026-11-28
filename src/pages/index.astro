@@ -315,15 +315,40 @@ const h2 = "-mb-2 mt-2 font-sans text-[19px] font-semibold tracking-[-0.02em] sm
         });
       }
 
-      // Portrait easter egg on touch devices: grow while pressed (hover handles mouse).
+      // Portrait easter egg: drag it around to paint the background (src/scripts/portrait-paint.ts). That code is
+      // loaded lazily so it stays out of the way of the first render: when the browser is idle after load, or at
+      // the first hover/press on the portrait, whichever comes first. Until then this only zooms it while pressed
+      // on touch (hover does it on mouse) and remembers the press, so a drag that starts early still works.
       const portrait = document.querySelector<HTMLElement>("[data-portrait]");
       if (portrait) {
-        const release = () => delete portrait.dataset.zoom;
-        portrait.addEventListener("pointerdown", (event) => {
-          if (event.pointerType !== "mouse") portrait.dataset.zoom = "";
-        });
-        for (const type of ["pointerup", "pointercancel", "pointerleave"]) portrait.addEventListener(type, release);
+        let pending: PointerEvent | undefined;
+        let loading: Promise<void> | undefined;
+        const load = () =>
+          (loading ??= import("../scripts/portrait-paint").then(({ init }) => {
+            portrait.removeEventListener("pointerdown", early);
+            portrait.removeEventListener("pointerup", cancel);
+            portrait.removeEventListener("pointercancel", cancel);
+            init(portrait, pending);
+          }));
+        const early = (event: PointerEvent) => {
+          if (!event.isPrimary || event.button !== 0) return;
+          event.preventDefault();
+          pending = event;
+          portrait.dataset.zoom = "";
+          load();
+        };
+        const cancel = () => {
+          pending = undefined;
+          delete portrait.dataset.zoom;
+        };
+        portrait.addEventListener("pointerdown", early);
+        portrait.addEventListener("pointerup", cancel);
+        portrait.addEventListener("pointercancel", cancel);
+        portrait.addEventListener("pointerenter", load, { once: true });
         portrait.addEventListener("contextmenu", (event) => event.preventDefault());
+        const idle = () => ("requestIdleCallback" in window ? requestIdleCallback(load, { timeout: 3000 }) : setTimeout(load, 1500));
+        if (document.readyState === "complete") idle();
+        else addEventListener("load", idle, { once: true });
       }
     </script>
   </body>
